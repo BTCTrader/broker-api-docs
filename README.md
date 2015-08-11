@@ -209,12 +209,12 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 ]
 ```
 
-*id: Transaction id
-*date: Date and time
-*operation: Type of transaction (sell,buy,deposit,commission,withdrawal)
-*btc: Bitcoin amount of transaction
-*currency: Money amount of transaction
-*price: The price of the trade if the transaction is a buy or sell
+* id: Transaction id
+* date: Date and time
+* operation: Type of transaction (sell,buy,deposit,commission,withdrawal)
+* btc: Bitcoin amount of transaction
+* currency: Money amount of transaction
+* price: The price of the trade if the transaction is a buy or sell
 
 ## Open Orders (Requires Authentication)
 
@@ -240,11 +240,11 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 ]
 ```
 
-*id: Order id
-*datetime: Date and time the order was inserted at
-*type: Type of order. BuyBtc or SellBtc
-*price: Price of the order
-*amount: Bitcoin amount of the order
+* id: Order id
+* datetime: Date and time the order was inserted at
+* type: Type of order. BuyBtc or SellBtc
+* price: Price of the order
+* amount: Bitcoin amount of the order
 
 ## Cancel Order (Requires Authentication)
 
