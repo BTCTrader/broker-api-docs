@@ -14,6 +14,9 @@ Append your exchange's URL to the beginning of the methods to use the API. For e
 
 Here are some sample client implementations for our API: 
 
+* [C# client] (https://github.com/BTCTrader/broker-api-csharp) 
+* [Objective C client] (https://github.com/BTCTrader/broker-api-objectivec) 
+
 **Important:** Please take a look at how the authorization is implemented. If you make too many unauthorized requests, your IP will be blocked.
 
 ## Ticker
