@@ -63,10 +63,30 @@ Returns JSON dictionary:
 ## Trades
 
  <code>GET</code> .../api/trades 
+
 OR
 
- <code>GET</code> .../api/trades?last=COUNT
-Max. value for count parameter is 50. Returns JSON dictionary:
+ <code>GET</code> .../api/trades?last=COUNT (Max. value for count parameter is 50)
+
+Returns JSON dictionary:
+
+``` json
+
+  [
+    {
+     "date": 1439280491.0,
+     "tid": "55c9ad6b1ac4dc12b06131dc",
+     "price":767.47,
+     "amount":0.06486361
+    },
+    {
+     "date": 1439280491.0,
+     "tid": "55c9ad6b1ac4dc12b06131dc",
+     "price":767.47,
+     "amount":0.06486361
+    } 
+  ]
+```
 
 "date": UNIXTIME
 "price": PRICE
