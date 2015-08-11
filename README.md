@@ -46,18 +46,18 @@ Returns JSON dictionary:
 ## Order Book
 
  <code>GET</code> .../api/orderbook 
+
 Returns JSON dictionary:
 
-"timestamp": UNIXTIME
-"bids": [
-"price": PRICE
-"amount": AMOUNT
-]
-"asks": [
-"price": PRICE
-"amount": AMOUNT
-]
-Trades
+``` json
+{
+  "timestamp":1439279819.0,
+  "bids":[["761.68","1.17474867"],["761.67","0.23928215"],],
+  "asks":[["767.48","0.12456411"],["767.49","4.07185043"]
+}
+```
+
+## Trades
 
  <code>GET</code> .../api/trades 
 OR
