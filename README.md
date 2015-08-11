@@ -43,7 +43,7 @@ Returns JSON dictionary:
 * **ask:** Lowest current ask
 * **open:** Price of the opening trade on the current day
 
-Order Book
+## Order Book
 
  <code>GET</code> .../api/orderbook 
 Returns JSON dictionary:
