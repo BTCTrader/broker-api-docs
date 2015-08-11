@@ -282,15 +282,28 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 If the order is market order:
 
-* price: Price field will be ignored. Market orders get filled with different prices until your order is completely filled. There is a 5% limit on the difference between the first price and the last price. İ.e. you can't buy at a price more than 5% higher than the best sell at the time of order submission
-* amount: Amount field will be ignored. Amount will be computed with market price and total money
-* total: The total amount you will spend with this order. You will buy from different prices until your order is filled as described above
+* Price: Price field will be ignored for market orders. Market orders get filled with different prices until your order is completely filled. There is a 5% limit on the difference between the first price and the last price. İ.e. you can't buy at a price more than 5% higher than the best sell at the time of order submission
+* Amount: Amount field will be ignored. Amount will be computed with market price and total money
+* Total: The total amount you will spend with this order. You will buy from different prices until your order is filled as described above
 
 If order is limit order:
 
-* price: price of per BTC
-* amount": Amount BTC what you want to buy
-* total": Total field will be ignored
+* Price: Order price
+* Amount": Order amount
+* Total": Total field will be ignored
+
+**Result:**
+``` json
+{
+  "id":"55c9d0783fbe186b4c08b831",
+  "datetime":"2015-08-11T10:37:44.4786271Z",
+  "type":"BuyBtc",
+  "price":739.16,
+  "amount":2629.77891473
+}
+```
+
+* The result is a JSON object containing your order details and order ID if the request succeeded.
 
 ## Sell Order (Requires Authentication)
 
