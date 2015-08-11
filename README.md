@@ -138,15 +138,26 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 ## Account Balance (Requires Authentication)
 
  <code>GET</code> .../api/balance 
-Returns JSON dictionary:
 
-"money_balance": TL balance
-"bitcoin_balance": BTC balance
-"money_reserved": TL reserved in open orders
-"bitcoin_reserved": BTC reserved in open orders
-"money_available": TL available for trading
-"bitcoin_available": BTC available for trading
-"fee_percentage": Fee Percentage
+**Result**
+``` json
+{
+  "money_balance": 1000.00,
+  "bitcoin_balance": 1.00000000,
+  "money_reserved": 250.00,
+  "bitcoin_reserved": 0.25000000,
+  "money_available": 750.00,
+  "bitcoin_available": 0.75000000,
+  "fee_percentage": 0.2
+}
+```
+* **money_balance**: Total money balance including open orders and pending withdrawal requests
+* **bitcoin_balance**: Total bitcoin balance including open orders and pending withdrawal requests
+* **money_reserved**: Money reserved in open orders
+* **bitcoin_reserved**: Bitcoin reserved in open orders
+* **money_available**: Money available for trading
+* **bitcoin_available**: Bitcoin available for trading
+* **fee_percentage**: Market TAKER fee percentage
 
 ## User Transactions (Requires Authentication)
 
