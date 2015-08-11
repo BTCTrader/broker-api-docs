@@ -161,13 +161,15 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 ## User Transactions (Requires Authentication)
 
- <code>GET</code> .../api/userTransactions 
+ <code>GET</code> .../api/userTransactions?offset=OFFSET&limit=LIMIT&sort=SORT
 
 **Params:**
 
-* offset: Skip that many transactions before beginning to return results.(mandatory)
-* limit: Limit result to that many transactions.(mandatory)
-* sort: Sorting by date and time (asc - ascending; desc - descending).(mandatory)
+* offset: Skip that many transactions before beginning to return results.
+* limit: Limit result to that many transactions.
+* sort: Sorting by date and time ("asc" for ascending results, "desc" for descending results).
+
+***Important*** All three parameters are required.
 
 **Result**
 ``` json
