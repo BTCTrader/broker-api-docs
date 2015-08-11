@@ -35,14 +35,14 @@ Returns JSON dictionary:
   "open":758.31
 }
 ```
+**last:** Last BTC price
+**high:** Highest trade price in the last 24 hours
+**low:** Lowest trade price in the last 24 hours
+**volume:** Total volume in the last 24 hours
+**bid:** Highest current bid
+**ask:** Lowest current ask
+**open:** Price of the opening trade on the current day
 
-last - last BTC price
-high - last 24 hours price high
-low - last 24 hours price low
-volume - last 24 hours volume
-bid - highest buy order
-ask - lowest sell order
-open - opening trade of the current day
 Order Book
 
  <code>GET</code> .../api/orderbook 
