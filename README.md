@@ -175,7 +175,8 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
   {
     "id":"55c9b4ea3fbe186b4c089d09",
     "date":"2015-08-11T11:40:17.278",
-    "operation":"buy","btc":1.9449023,
+    "operation":"buy",
+    "btc":1.9449023,
     "currency":-1428.57,
     "price":734.52
   },
@@ -183,7 +184,8 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
     "id":"55c9b4ea3fbe186b4c089d0a",
     "date":"2015-08-11T11:40:17.325",
     "operation":"commission",
-    "btc":0.0,"currency":0.0,
+    "btc":0.0,
+    "currency":0.0,
     "price":0.0
   },
   {
@@ -205,12 +207,12 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 ]
 ```
 
-"id": Transaction id
-"date": Date and time
-"operation": Name of operation (sell,buy,deposit,commission,withdrawal)
-"btc": BTC amount
-"currency": Currency amount
-"price": The price of the trade. Only for buy and sell transactions
+*id: Transaction id
+*date: Date and time
+*operation: Type of transaction (sell,buy,deposit,commission,withdrawal)
+*btc: Bitcoin amount of transaction
+*currency: Money amount of transaction
+*price: The price of the trade if the transaction is a buy or sell
 
 ## Open Orders (Requires Authentication)
 
