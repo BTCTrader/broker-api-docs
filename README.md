@@ -1,7 +1,7 @@
 # Wite label exchange API documentation
 The documentation for BTCTrader's white label exchange platform API. Use this documentation to access the APIs of BTCTurk, BTCGreece, BTCExchange.PH and other BTCTrader partners.
 
-Request Limits
+## Request Limits
 
 Ticker requests limited to 10 requests per 100 miliseconds.
 
