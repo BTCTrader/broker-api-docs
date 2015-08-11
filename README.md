@@ -16,9 +16,10 @@ Here are some sample client implementations for our API:
 
 **Important:** Please take a look at how the authorization is implemented. If you make too many unauthorized requests, your IP will be blocked.
 
-Ticker
+## Ticker
 
- GET .../api/ticker 
+<code>GET</code> .../api/ticker 
+
 Returns JSON dictionary:
 
 last - last BTC price
@@ -30,7 +31,7 @@ ask - lowest sell order
 open - opening trade of the current day
 Order Book
 
- GET .../api/orderbook 
+ <code>GET</code> .../api/orderbook 
 Returns JSON dictionary:
 
 "timestamp": UNIXTIME
@@ -44,10 +45,10 @@ Returns JSON dictionary:
 ]
 Trades
 
- GET .../api/trades 
+ <code>GET</code> .../api/trades 
 OR
 
- GET .../api/trades?last=COUNT
+ <code>GET</code> .../api/trades?last=COUNT
 Max. value for count parameter is 50. Returns JSON dictionary:
 
 "date": UNIXTIME
@@ -92,7 +93,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 Account Balance (Requires Authentication)
 
- GET .../api/balance 
+ <code>GET</code> .../api/balance 
 Returns JSON dictionary:
 
 "money_balance": TL balance
@@ -104,7 +105,7 @@ Returns JSON dictionary:
 "fee_percentage": Fee Percentage
 User Transactions (Requires Authentication)
 
- GET .../api/userTransactions 
+ <code>GET</code> .../api/userTransactions 
 Params:
 
 "offset": Skip that many transactions before beginning to return results.(mandatory)
@@ -120,7 +121,7 @@ Returns JSON dictionary:
 "price": The price of the trade. Only for buy and sell transactions
 Open Orders (Requires Authentication)
 
- GET .../api/openOrders 
+ <code>GET</code> .../api/openOrders 
 Returns JSON dictionary:
 
 "id": Order id
@@ -130,7 +131,7 @@ Returns JSON dictionary:
 "amount": BTC amount
 Cancel Order (Requires Authentication)
 
- POST .../api/cancelOrder 
+ <code>POST</code> .../api/cancelOrder 
 Params:
 
 "id": order ID
@@ -139,7 +140,7 @@ Returns Json dictionary:
 "result": result of the cancellation (boolean)
 Buy Order (Requires Authentication)
 
- POST .../api/buy 
+ <code>POST</code> .../api/buy 
 Params:
 
 "IsMarketOrder": 1 for market order, 0 for limit order
@@ -155,7 +156,7 @@ If order is limit order
 "Total": Total field will be ignored
 Sell Order (Requires Authentication)
 
- POST .../api/sell 
+ <code>POST</code> .../api/sell 
 Params:
 
 "IsMarketOrder": 1 for market order, 0 for limit order
