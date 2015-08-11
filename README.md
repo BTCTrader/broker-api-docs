@@ -91,7 +91,7 @@ OR
 * **price:** Price of the trade
 * **amount:** Amount of the trade
 
-** API Authentication
+## API Authentication
 
 All API calls related to a user account require authentication.
 
@@ -101,7 +101,7 @@ You need to provide 3 parameters to authenticate a request:
 * "X-Stamp": Nonce
 * "X-Signature": Signature
 
-*** API key
+### API key
 
 You can create the API key from the Account > API Access page
 
