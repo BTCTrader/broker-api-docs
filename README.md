@@ -251,16 +251,22 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
  <code>POST</code> .../api/cancelOrder
  
 **Params:**
+* id: order ID
 
-"id": order ID
-Returns Json dictionary:
+**Result:**
+``` json
+{
+  "result":true
+}
+```
 
-"result": result of the cancellation (boolean)
+* result: True if the order cancellation succeeded. False if it failed.
 
 ## Buy Order (Requires Authentication)
 
- <code>POST</code> .../api/buy 
-Params:
+ <code>POST</code> .../api/buy
+ 
+**Params:**
 
 "IsMarketOrder": 1 for market order, 0 for limit order
 If order is market order
