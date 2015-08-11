@@ -18,7 +18,7 @@ Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on 
 
 * .../api/ticker requests are limited to 10 requests per 100 miliseconds.
 * Other requests are limited to 1 request per 100 miliseconds.
-* If you make more than 50 consequent unauthorized requests your IP address will be blocked for 10 minutes
+* If you make more than 50 consequent unauthorized requests your IP address will be blocked
 
 ## Sample API Clients
 
