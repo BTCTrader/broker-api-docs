@@ -52,14 +52,8 @@ Here are some sample client implementations for our API:
 ``` json
 {
   "timestamp":1439279819.0,
-  "bids":[
-          ["761.68","1.17474867"],
-          ["761.67","0.23928215"]
-         ],
-  "asks":[
-          ["767.48","0.12456411"],
-          ["767.49","4.07185043"]
-         ]
+  "bids":[["761.68","1.17474867"],["761.67","0.23928215"]],
+  "asks":[["767.48","0.12456411"],["767.49","4.07185043"]]
 }
 ```
 * **bids:** Array of current open bids on the orderbook.
