@@ -12,7 +12,7 @@ You can use our testing platforms to test the APIs. The balances on the test sit
 * [BTCExchange Test] (http://btctrader-broker-btcph.azurewebsites.net/)
 
 ## Questions & Problems
-Please use the issues on this github project to ask questions and report bugs.
+Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on this github project to ask questions and report bugs.
 
 ## Request Limits
 
