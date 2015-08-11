@@ -4,6 +4,16 @@ The documentation for BTCTrader's white label exchange platform API. Use this do
 ## Usage
 Append your exchange's URL to the beginning of the methods to use the API. For example, to get ticker info from BTCTurk, use [https://www.btcturk.com/api/ticker] (https://www.btcturk.com/api/ticker)
 
+## Testing
+You can use our testing platforms to test the APIs. The balances on the test sites are not real and do not represent any real value. The testing platforms work on Bitcoin TESTNET and you can deposit TESTNET coins to your account. The testing platforms are:
+
+* [BTCTurk Test] (https://btctrader-broker-btcturk.azurewebsites.net/)
+* [BTCGreece Test] (https://btctrader-broker-btcgreece.azurewebsites.net/)
+* [BTCExchange Test] (http://btctrader-broker-btcph.azurewebsites.net/)
+
+## Questions & Problems
+Please use the issues on this github project to ask questions and report bugs.
+
 ## Request Limits
 
 * .../api/ticker requests are limited to 10 requests per 100 miliseconds.
