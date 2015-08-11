@@ -24,7 +24,7 @@ Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on 
 
 Here are some sample client implementations for our API: 
 
-* [C# client] (https://github.com/BTCTrader/broker-api-csharp) 
+* [C# client] (https://github.com/BTCTrader/broker-api-csharp). A nuget package is also [available](https://www.nuget.org/packages/BTCTrader.APIClient/)
 * [Objective C client] (https://github.com/BTCTrader/broker-api-objectivec) 
 
 **Important:** Please take a look at how the authorization is implemented in the samples. If you make too many unauthorized requests, your IP will be blocked.
