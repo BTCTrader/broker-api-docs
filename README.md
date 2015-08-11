@@ -65,8 +65,7 @@ OR
 
  <code>GET</code> .../api/trades?last=COUNT (Max. value for count parameter is 50)
 
-Returns JSON dictionary:
-
+**Result**
 ``` json
 
   [
