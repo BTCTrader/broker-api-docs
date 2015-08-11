@@ -290,7 +290,7 @@ For limit orders:
 
 * Price: Order price
 * Amount": Order amount
-* Total: Total field will be ignored for limit orders.
+* Total: Will be ignored for limit orders.
 
 **Result:**
 ``` json
@@ -299,7 +299,7 @@ For limit orders:
   "datetime":"2015-08-11T10:37:44.4786271Z",
   "type":"BuyBtc",
   "price":739.16,
-  "amount":2629.77891473
+  "amount":2.77891473
 }
 ```
 
@@ -323,4 +323,17 @@ For limit orders:
 
 * Price: Order price
 * Amount": Order amount
-* Total: Total field will be ignored for limit orders.
+* Total: Will be ignored for limit orders.
+
+**Result:**
+``` json
+{
+  "id":"55c9d0783fbe186b4c08b831",
+  "datetime":"2015-08-11T10:37:44.4786271Z",
+  "type":"SellBtc",
+  "price":739.16,
+  "amount":2.77891473
+}
+```
+
+* The result is a JSON object containing your order details and order ID if the request succeeded.
