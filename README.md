@@ -161,13 +161,13 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
   "fee_percentage": 0.2
 }
 ```
-* **money_balance**: Total money balance including open orders and pending withdrawal requests
-* **bitcoin_balance**: Total bitcoin balance including open orders and pending withdrawal requests
-* **money_reserved**: Money reserved in open orders
-* **bitcoin_reserved**: Bitcoin reserved in open orders
-* **money_available**: Money available for trading
-* **bitcoin_available**: Bitcoin available for trading
-* **fee_percentage**: Market taker fee percentage
+* money_balance: Total money balance including open orders and pending withdrawal requests
+* **bitcoin_balance: Total bitcoin balance including open orders and pending withdrawal requests
+* money_reserved: Money reserved in open orders
+* bitcoin_reserved: Bitcoin reserved in open orders
+* money_available: Money available for trading
+* bitcoin_available: Bitcoin available for trading
+* fee_percentage: Market taker fee percentage
 
 ## User Transactions (Requires Authentication)
 
