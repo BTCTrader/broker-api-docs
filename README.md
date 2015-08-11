@@ -14,7 +14,7 @@ Append your exchange's URL to the beginning of the methods to use the API. For e
 
 Here are some sample client implementations for our API: 
 
-** Important: ** Please take a look at how the authorization is implemented. If you make too many unauthorized requests, your IP will be blocked.
+**Important:** Please take a look at how the authorization is implemented. If you make too many unauthorized requests, your IP will be blocked.
 
 Ticker
 
