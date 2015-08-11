@@ -147,7 +147,8 @@ Returns JSON dictionary:
 "money_available": TL available for trading
 "bitcoin_available": BTC available for trading
 "fee_percentage": Fee Percentage
-User Transactions (Requires Authentication)
+
+## User Transactions (Requires Authentication)
 
  <code>GET</code> .../api/userTransactions 
 Params:
@@ -163,7 +164,8 @@ Returns JSON dictionary:
 "btc": BTC amount
 "currency": Currency amount
 "price": The price of the trade. Only for buy and sell transactions
-Open Orders (Requires Authentication)
+
+## Open Orders (Requires Authentication)
 
  <code>GET</code> .../api/openOrders 
 Returns JSON dictionary:
@@ -182,7 +184,8 @@ Params:
 Returns Json dictionary:
 
 "result": result of the cancellation (boolean)
-Buy Order (Requires Authentication)
+
+## Buy Order (Requires Authentication)
 
  <code>POST</code> .../api/buy 
 Params:
@@ -198,7 +201,8 @@ If order is limit order
 "Price": price of per BTC
 "Amount": Amount BTC what you want to buy
 "Total": Total field will be ignored
-Sell Order (Requires Authentication)
+
+## Sell Order (Requires Authentication)
 
  <code>POST</code> .../api/sell 
 Params:
