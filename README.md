@@ -290,6 +290,7 @@ For limit orders:
 
 * Price: Order price
 * Amount": Order amount
+* Type: must be set as "BuyBtc"
 * Total: Will be ignored for limit orders.
 
 **Result:**
@@ -323,6 +324,7 @@ For limit orders:
 
 * Price: Order price
 * Amount": Order amount
+* Type: must be set as "SelBtc"
 * Total: Will be ignored for limit orders.
 
 **Result:**
