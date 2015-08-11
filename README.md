@@ -23,8 +23,6 @@ Here are some sample client implementations for our API:
 
 <code>GET</code> .../api/ticker 
 
-Returns JSON dictionary:
-
 **Result**
 ``` json
 {
@@ -50,8 +48,7 @@ Returns JSON dictionary:
 
  <code>GET</code> .../api/orderbook 
 
-Returns JSON dictionary:
-
+**Result**
 ``` json
 {
   "timestamp":1439279819.0,
