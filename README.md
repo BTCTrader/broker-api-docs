@@ -280,17 +280,17 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 * IsMarketOrder: 1 for market order, 0 for limit order
 
-If the order is market order:
+For market orders:
 
 * Price: Price field will be ignored for market orders. Market orders get filled with different prices until your order is completely filled. There is a 5% limit on the difference between the first price and the last price. İ.e. you can't buy at a price more than 5% higher than the best sell at the time of order submission
-* Amount: Amount field will be ignored. Amount will be computed with market price and total money
+* Amount: Amount field will be ignored for buy market orders. The amount will be calculated according to the total value that you send.
 * Total: The total amount you will spend with this order. You will buy from different prices until your order is filled as described above
 
-If order is limit order:
+For limit orders:
 
 * Price: Order price
 * Amount": Order amount
-* Total": Total field will be ignored
+* Total: Total field will be ignored for limit orders.
 
 **Result:**
 ``` json
@@ -308,16 +308,19 @@ If order is limit order:
 ## Sell Order (Requires Authentication)
 
  <code>POST</code> .../api/sell 
-Params:
+ 
+**Params:**
 
-"IsMarketOrder": 1 for market order, 0 for limit order
-If order is market order.
+* IsMarketOrder: 1 for market order, 0 for limit order
 
-"Price": Price field will be ignored. Market orders get filled with different prices until your order is completely filled. There is a 5% limit on the difference between the first price and the last price. İ.e. you can't sell at a price less than 5% lower than the best buy at the time of order submission
-"Amount": The total amount you will sell with this order. You will sell at different prices until your order is filled as described above
-"Total": Total field will be ignored
-If order is limit order.
+For market orders:
 
-"Price": price of per BTC
-"Amount": Amount BTC what you want to sell
-"Total": Total field will be ignored
+* Price: Price field will be ignored. Market orders get filled with different prices until your order is completely filled. There is a 5% limit on the difference between the first price and the last price. İ.e. you can't sell at a price less than 5% lower than the best buy at the time of order submission
+* Amount: The total amount you will sell with this order. You will sell at different prices until your order is filled as described above
+* Total: Total field will be ignored. The total amount will depent on the amount value you send.
+
+For limit orders:
+
+* Price: Order price
+* Amount": Order amount
+* Total: Total field will be ignored for limit orders.
