@@ -8,14 +8,13 @@ Append your exchange's URL to the beginning of the methods to use the API. For e
 
 * .../api/ticker requests are limited to 10 requests per 100 miliseconds.
 * Other requests are limited to 1 request per 100 miliseconds.
+* If you make more than 50 consequent unauthorized requests your IP will be blocked for 10 minutes
 
-If you make more than 50 consequent unauthorized requests your IP will be blocked for 10 minutes
+## Sample API Clients
 
-Excessive requests will be denied.
+Here are some sample client implementations for our API: 
 
-Sample API Clients
-
-You can find sample client implementations of our API on BTCTrader's Github page »
+** Important: ** Please take a look at how the authorization is implemented. If you make too many unauthorized requests, your IP will be blocked.
 
 Ticker
 
