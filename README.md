@@ -101,36 +101,41 @@ You need to provide 3 parameters to authenticate a request:
 * "X-Stamp": Nonce
 * "X-Signature": Signature
 
-### API key
+#### API key
 
 You can create the API key from the Account > API Access page
 
-*** Nonce
+#### Nonce
 
 Nonce is a regular integer number. It must be increasing with every request you make.
 
 A common practice is to use unix time for that parameter.
 
-Signature
+#### Signature
 
 Signature is a HMAC-SHA256 encoded message. The HMAC-SHA256 code must be generated using a private key that contains a timestamp and your API key
 
 Example (C#):
+```c#
 string message = yourAPIKey + unixTimeStamp;
 using (HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String( yourPrivateKey )))
 {
 byte[] signatureBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(message));
 string X-Signature = Convert.ToBase64String(signatureBytes));
 }
+```
 After creating the parameters, you have to send them in the HTML Header of your request with their name
 
 Example (C#):
+```c#
 client.DefaultRequestHeaders.Add("X-PCK", yourAPIKey);
 client.DefaultRequestHeaders.Add("X-Stamp", stamp.ToString());
 client.DefaultRequestHeaders.Add("X-Signature", signature);
+```
+
 Warning: Your IP address can be blocked if you make too many unauthorized requests. Make sure you implement the authentication method properly.
 
-Account Balance (Requires Authentication)
+## Account Balance (Requires Authentication)
 
  <code>GET</code> .../api/balance 
 Returns JSON dictionary:
