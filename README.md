@@ -11,6 +11,8 @@ You can use our testing platforms to test the APIs. The balances on the test sit
 * [BTCGreece Test] (https://btctrader-broker-btcgreece.azurewebsites.net/)
 * [BTCExchange Test] (http://btctrader-broker-btcph.azurewebsites.net/)
 
+**Important** Our mobile applications will not work with the testing platforms. They can only be synced with our live platforms.
+
 ## Questions & Problems
 Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on this github project to ask questions and report bugs.
 
