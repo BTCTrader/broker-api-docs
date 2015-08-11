@@ -167,7 +167,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 * offset: Skip that many transactions before beginning to return results.
 * limit: Limit result to that many transactions.
-* sort: Sorting by date and time ("asc" for ascending results, "desc" for descending results).
+* sort: Results are sorted by date and time. Provide "asc" for ascending results, "desc" for descending results.
 
 ***Important*** All three parameters are required.
 
@@ -218,15 +218,17 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 ## Open Orders (Requires Authentication)
 
- <code>GET</code> .../api/openOrders 
-Returns JSON dictionary:
+ <code>GET</code> .../api/openOrders
+ 
+**Result:**
 
 "id": Order id
 "datetime": Date and time
 "type": Type of order. BuyBtc or SellBtc
 "price": Per BTC price
 "amount": BTC amount
-Cancel Order (Requires Authentication)
+
+## Cancel Order (Requires Authentication)
 
  <code>POST</code> .../api/cancelOrder 
 Params:
