@@ -162,12 +162,47 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 ## User Transactions (Requires Authentication)
 
  <code>GET</code> .../api/userTransactions 
-Params:
 
-"offset": Skip that many transactions before beginning to return results.(mandatory)
-"limit": Limit result to that many transactions.(mandatory)
-"sort": Sorting by date and time (asc - ascending; desc - descending).(mandatory)
-Returns JSON dictionary:
+**Params:**
+
+* offset: Skip that many transactions before beginning to return results.(mandatory)
+* limit: Limit result to that many transactions.(mandatory)
+* sort: Sorting by date and time (asc - ascending; desc - descending).(mandatory)
+
+**Result**
+``` json
+[
+  {
+    "id":"55c9b4ea3fbe186b4c089d09",
+    "date":"2015-08-11T11:40:17.278",
+    "operation":"buy","btc":1.9449023,
+    "currency":-1428.57,"price":734.52
+  },
+  {
+    "id":"55c9b4ea3fbe186b4c089d0a",
+    "date":"2015-08-11T11:40:17.325",
+    "operation":"commission",
+    "btc":0.0,"currency":0.0,
+    "price":0.0
+  },
+  {
+    "id":"55c9b5d33fbe186b4c089dd9",
+    "date":"2015-08-11T11:44:10.162",
+    "operation":"sell",
+    "btc":-2.18674928,
+    "currency":1613.18,
+    "price":737.71
+  },
+  {
+    "id":"55c9b5d33fbe186b4c089dda",
+    "date":"2015-08-11T11:44:10.209",
+    "operation":"commission",
+    "btc":0.0,
+    "currency":0.0,
+    "price":0.0
+  }
+]
+```
 
 "id": Transaction id
 "date": Date and time
