@@ -46,13 +46,13 @@ Here are some sample client implementations for our API:
   "open":758.31
 }
 ```
-* **last:** Last BTC price
-* **high:** Highest trade price in the last 24 hours
-* **low:** Lowest trade price in the last 24 hours
-* **volume:** Total volume in the last 24 hours
-* **bid:** Highest current bid
-* **ask:** Lowest current ask
-* **open:** Price of the opening trade on the current day
+* last: Last BTC price
+* high: Highest trade price in the last 24 hours
+* low: Lowest trade price in the last 24 hours
+* volume: Total volume in the last 24 hours
+* bid: Highest current bid
+* ask: Lowest current ask
+* open: Price of the opening trade on the current day
 
 ## Order Book
 
@@ -96,10 +96,10 @@ OR
   ]
 ```
 
-* **date:** Unix time of the trade (In the exchange's local timezone)
-* **tid:** Trade ID
-* **price:** Price of the trade
-* **amount:** Amount of the trade
+* date: Unix time of the trade (In the exchange's local timezone)
+* tid: Trade ID
+* rice: Price of the trade
+* amount: Amount of the trade
 
 ## API Authentication
 
