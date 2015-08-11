@@ -103,7 +103,7 @@ You need to provide 3 parameters to authenticate a request:
 
 #### API key
 
-You can create the API key from the Account > API Access page
+You can create the API key from the Account > API Access page in your exchange account.
 
 #### Nonce
 
