@@ -157,7 +157,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 * **bitcoin_reserved**: Bitcoin reserved in open orders
 * **money_available**: Money available for trading
 * **bitcoin_available**: Bitcoin available for trading
-* **fee_percentage**: Market TAKER fee percentage
+* **fee_percentage**: Market taker fee percentage
 
 ## User Transactions (Requires Authentication)
 
