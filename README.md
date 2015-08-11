@@ -221,17 +221,36 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
  <code>GET</code> .../api/openOrders
  
 **Result:**
+``` json
+[
+  {
+    "id":"55b708549c8d054130d80d71",
+    "datetime":"2015-07-28T04:43:00.271Z",
+    "type":"SellBtc",
+    "price":820.02,
+    "amount":4.65915461
+  },
+  {
+    "id":"55b9f6039c8d0530ac9926dd",
+    "datetime":"2015-07-30T10:01:39.619Z",
+    "type":"BuyBtc",
+    "price":790.61,
+    "amount":10.42124175
+  },
+]
+```
 
-"id": Order id
-"datetime": Date and time
-"type": Type of order. BuyBtc or SellBtc
-"price": Per BTC price
-"amount": BTC amount
+*id: Order id
+*datetime: Date and time the order was inserted at
+*type: Type of order. BuyBtc or SellBtc
+*price: Price of the order
+*amount: Bitcoin amount of the order
 
 ## Cancel Order (Requires Authentication)
 
- <code>POST</code> .../api/cancelOrder 
-Params:
+ <code>POST</code> .../api/cancelOrder
+ 
+**Params:**
 
 "id": order ID
 Returns Json dictionary:
