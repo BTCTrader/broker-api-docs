@@ -278,17 +278,19 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
  
 **Params:**
 
-"IsMarketOrder": 1 for market order, 0 for limit order
-If order is market order
+* IsMarketOrder: 1 for market order, 0 for limit order
 
-"Price": Price field will be ignored. Market orders get filled with different prices until your order is completely filled. There is a 5% limit on the difference between the first price and the last price. İ.e. you can't buy at a price more than 5% higher than the best sell at the time of order submission
-"Amount": Amount field will be ignored. Amount will be computed with market price and total money
-"Total": The total amount you will spend with this order. You will buy from different prices until your order is filled as described above
-If order is limit order
+If the order is market order:
 
-"Price": price of per BTC
-"Amount": Amount BTC what you want to buy
-"Total": Total field will be ignored
+* price: Price field will be ignored. Market orders get filled with different prices until your order is completely filled. There is a 5% limit on the difference between the first price and the last price. İ.e. you can't buy at a price more than 5% higher than the best sell at the time of order submission
+* amount: Amount field will be ignored. Amount will be computed with market price and total money
+* total: The total amount you will spend with this order. You will buy from different prices until your order is filled as described above
+
+If order is limit order:
+
+* price: price of per BTC
+* amount": Amount BTC what you want to buy
+* total": Total field will be ignored
 
 ## Sell Order (Requires Authentication)
 
