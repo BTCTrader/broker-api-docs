@@ -279,6 +279,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 **Params:**
 
 * IsMarketOrder: 1 for market order, 0 for limit order
+* Type: must be set as "BuyBtc"
 
 For market orders:
 
@@ -290,7 +291,6 @@ For limit orders:
 
 * Price: Order price
 * Amount": Order amount
-* Type: must be set as "BuyBtc"
 * Total: Will be ignored for limit orders.
 
 **Result:**
@@ -313,6 +313,7 @@ For limit orders:
 **Params:**
 
 * IsMarketOrder: 1 for market order, 0 for limit order
+* Type: must be set as "SelBtc"
 
 For market orders:
 
@@ -324,7 +325,6 @@ For limit orders:
 
 * Price: Order price
 * Amount": Order amount
-* Type: must be set as "SelBtc"
 * Total: Will be ignored for limit orders.
 
 **Result:**
