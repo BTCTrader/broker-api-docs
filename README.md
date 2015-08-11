@@ -56,6 +56,8 @@ Here are some sample client implementations for our API:
   "asks":[["767.48","0.12456411"],["767.49","4.07185043"]]
 }
 ```
+* **bids:** Array of current open bids on the orderbook.
+* **asks:** Array of current open askss on the orderbook.
 
 ## Trades
 
@@ -84,22 +86,26 @@ OR
   ]
 ```
 
-"date": UNIXTIME
-"price": PRICE
-"amount": AMOUNT
-"tid": TRADE_ID
-API Authentication
+* **date:** Unix time of the trade (In the exchange's local timezone)
+* **tid:** Trade ID
+* **price:** Price of the trade
+* **amount:** Amount of the trade
 
-All API calls related to a specific account require authentication. You need to provide 3 parameters to authenticate a request:
+** API Authentication
 
-"X-PCK": API key
-"X-Stamp": Nonce
-"X-Signature": Signature
-API key
+All API calls related to a user account require authentication.
+
+You need to provide 3 parameters to authenticate a request:
+
+* "X-PCK": API key
+* "X-Stamp": Nonce
+* "X-Signature": Signature
+
+*** API key
 
 You can create the API key from the Account > API Access page
 
-Nonce
+*** Nonce
 
 Nonce is a regular integer number. It must be increasing with every request you make.
 
