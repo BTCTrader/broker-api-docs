@@ -162,7 +162,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 }
 ```
 * money_balance: Total money balance including open orders and pending withdrawal requests
-* **bitcoin_balance: Total bitcoin balance including open orders and pending withdrawal requests
+* bitcoin_balance: Total bitcoin balance including open orders and pending withdrawal requests
 * money_reserved: Money reserved in open orders
 * bitcoin_reserved: Bitcoin reserved in open orders
 * money_available: Money available for trading
