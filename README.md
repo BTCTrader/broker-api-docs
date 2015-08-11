@@ -23,7 +23,7 @@ Here are some sample client implementations for our API:
 
 <code>GET</code> .../api/ticker 
 
-**Result**
+**Result:**
 ``` json
 {
   "high":771.08,
@@ -48,7 +48,7 @@ Here are some sample client implementations for our API:
 
  <code>GET</code> .../api/orderbook 
 
-**Result**
+**Result:**
 ``` json
 {
   "timestamp":1439279819.0,
@@ -67,7 +67,7 @@ OR
 
  <code>GET</code> .../api/trades?last=COUNT (Max. value for count parameter is 50)
 
-**Result**
+**Result:**
 ``` json
 
   [
@@ -139,7 +139,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
  <code>GET</code> .../api/balance 
 
-**Result**
+**Result:**
 ``` json
 {
   "money_balance": 1000.00,
@@ -171,7 +171,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 ***Important*** All three parameters are required.
 
-**Result**
+**Result:**
 ``` json
 [
   {
