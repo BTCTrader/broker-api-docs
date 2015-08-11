@@ -176,7 +176,8 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
     "id":"55c9b4ea3fbe186b4c089d09",
     "date":"2015-08-11T11:40:17.278",
     "operation":"buy","btc":1.9449023,
-    "currency":-1428.57,"price":734.52
+    "currency":-1428.57,
+    "price":734.52
   },
   {
     "id":"55c9b4ea3fbe186b4c089d0a",
