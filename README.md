@@ -24,7 +24,16 @@ Returns JSON dictionary:
 
 **Result**
 ``` json
-{"high":771.08,"last":767.49,"timestamp":1439279026.0,"bid":762.48,"volume":182.92,"low":752.00,"ask":767.49,"open":758.31}
+{
+  "high":771.08,
+  "last":767.49,
+  "timestamp":1439279026.0,
+  "bid":762.48,
+  "volume":182.92,
+  "low":752.00,
+  "ask":767.49,
+  "open":758.31
+}
 ```
 
 last - last BTC price
