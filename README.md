@@ -344,6 +344,8 @@ For limit orders:
 
 ## Get Money Deposit Info (Requires Authentication)
 
+Use this method to check if the user has a pending local currency(USD, TRY, PHP, EUR etc.) deposit request.
+
 <code>GET</code> .../api/FundingMoney/DepositMoney
 
 **Result:** (null if the user does not have a deposit request)
@@ -373,6 +375,8 @@ For limit orders:
 * The result is a JSON object containing your request details and deposit code if the request succeeded.
 
 ## Deposit Money (Requires Authentication)
+
+Use this method to submit a local currency(USD, TRY, PHP, EUR etc.) deposit request.
 
 <code>POST</code> .../api/FundingMoney/DepositMoney
 
@@ -409,6 +413,8 @@ For limit orders:
 
 ## Get Money Withdrawal Info (Requires Authentication)
 
+Use this method to check if the user has a pending local currency(USD, TRY, PHP, EUR etc.) withdrawal request.
+
 <code>GET</code> .../api/FundingMoney/WithdrawalMoney
 
 **Result:**
@@ -427,6 +433,8 @@ For limit orders:
 * Otherwise if there is no request, it is return to list of bank and friendly bank name list.
 
 ## Withdrawal Money (Requires Authentication)
+
+Use this method to submit a local currency(USD, TRY, PHP, EUR etc.) withdrawal request.
 
 <code>POST</code> .../api/FundingMoney/WithdrawalMoney
 
