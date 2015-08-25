@@ -341,3 +341,116 @@ For limit orders:
 ```
 
 * The result is a JSON object containing your order details and order ID if the request succeeded.
+
+## Get Money Deposit Info (Requires Authentication)
+
+<code>GET</code> .../api/FundingMoney/DepositMoney
+
+**Result:** (null if the user does not have a deposit request)
+``` json
+{
+  "id":"55db2279ba3d9d2f14b81f34",
+  "deposit_code":"AVYM71",
+  "banks":
+    [
+      {
+        "bank_name":"YAPI VE KREDI BANKASI A.S.",
+        "iban":"TR123456789"
+      },
+      {
+        "bank_name":"T.IŞ BANKASI A.S.",
+        "iban":"TRxxxxxxxxxxxxxxx"
+      }
+    ],
+  "currency_type":"TL",
+  "amount":14.0,
+  "first_name":"Huseyin",
+  "last_name":"Gurkan",
+  "account_owner":"Bitcoin Trading Ltd."
+}
+```
+
+* The result is a JSON object containing your request details and deposit code if the request succeeded.
+
+## Deposit Money (Requires Authentication)
+
+<code>POST</code> .../api/FundingMoney/DepositMoney
+
+**Params:**
+
+* Amount: Amount of money, integer places
+* AmountPrecision: Amount of money, decimal places
+
+**Result:**
+``` json
+{
+  "id":"55db2279ba3d9d2f14b81f34",
+  "deposit_code":"AVYM71",
+  "banks":
+    [
+      {
+        "bank_name":"YAPI VE KREDI BANKASI A.S.",
+        "iban":"TR123456789"
+      },
+      {
+        "bank_name":"T.IŞ BANKASI A.S.",
+        "iban":"TRxxxxxxxxxxxxxxx"
+      }
+    ],
+  "currency_type":"TL",
+  "amount":14.0,
+  "first_name":"Huseyin",
+  "last_name":"Gurkan",
+  "account_owner":"Bitcoin Trading Ltd."
+}
+```
+
+* The result is a JSON object containing your request details and deposit code if the request succeeded.
+
+## Get Money Withdrawal Info (Requires Authentication)
+
+<code>GET</code> .../api/FundingMoney/WithdrawalMoney
+
+**Result:**
+``` json
+{
+  "iban":null,
+  "bank_list":[{"key":"ADABANK A.S.                       ","value":"51c41f6449ede8108423f015"},{"key":"AKBANK T.A.S.                      ","value":"51c41f6349ede8108423f00a"},{"key":"AKTIF YATIRIM BANKASI A.S.","value":"51c41f6649ede8108423f02a"},{"key":"ALBARAKA TURK KATILIM BANKASI A.S.","value":"51c41f6649ede8108423f02c"},{"key":"ALTERNATIFBANK A.S.","value":"51c41f6549ede8108423f020"},{"key":"ANADOLUBANK A.S.                   ","value":"51c41f6649ede8108423f025"},{"key":"ARAP TÜRK BANKASI A.S.             ","value":"51c41f6449ede8108423f010"},{"key":"ASYA KATILIM BANKASI A.S.","value":"51c41f6649ede8108423f02f"},{"key":"BANKPOZITIF KREDI VE KALK.BANK.A.S.","value":"51c41f6649ede8108423f029"},{"key":"BIRLESIK FON BANKASI A.S.","value":"51c41f6349ede8108423f008"},{"key":"BURGAN BANK A.S.","value":"51c41f6549ede8108423f021"},{"key":"CITIBANK A.S.","value":"51c41f6449ede8108423f011"},{"key":"DENIZ BANK A.S.","value":"51c41f6549ede8108423f024"},{"key":"DEUTSCHE BANK A.S.                 ","value":"51c41f6549ede8108423f01b"},{"key":"DİLER YATIRIM BANKASI A.S.         ","value":"51c41f6649ede8108423f026"},{"key":"FIBABANKA A.S.","value":"51c41f6449ede8108423f016"},{"key":"FINANSBANK A.S.                    ","value":"51c41f6549ede8108423f01a"},{"key":"GSD YATIRIM BANKASI A.S.","value":"51c41f6649ede8108423f027"},{"key":"HALK BANKASI                       ","value":"51c41f6349ede8108423f003"},{"key":"HSBC BANK A.S.                     ","value":"51c41f6549ede8108423f01f"},{"key":"İLLER BANKASI                      ","value":"51c41f6349ede8108423f001"},{"key":"ING BANK A.S.","value":"51c41f6449ede8108423f014"},{"key":"ISTANBUL TAKAS VE SAKLAMA BANK.A.S.","value":"51c41f6549ede8108423f023"},{"key":"JP MORGAN CHASE BANK NA MERK COL.OH","value":"51c41f6449ede8108423f013"},{"key":"KUVEYT TURK KATILIM BANKASI A.S.","value":"51c41f6649ede8108423f02d"},{"key":"MERKEZI KAYIT KURULUSU","value":"51c41f6649ede8108423f030"},{"key":"MERRILL LYNCH YATIRIM BANK A.S.","value":"51c41f6549ede8108423f022"},{"key":"NUROL YATIRIM BANKASI A.S.         ","value":"51c41f6649ede8108423f028"},{"key":"ODEA BANK A.S.","value":"51c41f6649ede8108423f02b"},{"key":"PORTIGON AG MER.DUSSELD.IST.MER.SB.","value":"51c41f6449ede8108423f017"},{"key":"POS","value":"51c41f6649ede8108423f031"},{"key":"ŞEKERBANK T.A.S.                   ","value":"51c41f6349ede8108423f00b"},{"key":"SOCIETE GENERALE                   ","value":"51c41f6549ede8108423f01e"},{"key":"STANDARD CHARTERED YATIRIM BANKASI","value":"51c41f6549ede8108423f01d"},{"key":"T.C.MERKEZ BANKASI A.Ş.","value":"51c41f6249ede8108423f000"},{"key":"T.EKONOMİ BANKASI A.S.             ","value":"51c41f6349ede8108423f009"},{"key":"T.GARANTİ BANKASI A.S.             ","value":"51c41f6349ede8108423f00c"},{"key":"T.IHRACAT KREDI BANKASI A.S.       ","value":"51c41f6349ede8108423f006"},{"key":"T.IŞ BANKASI A.S.","value":"51c41f6449ede8108423f00d"},{"key":"T.KALKINMA BANKASI A.S.            ","value":"51c41f6349ede8108423f007"},{"key":"T.SINAİ KALK. BANKASI A.S.         ","value":"51c41f6349ede8108423f004"},{"key":"T.VAKIFLAR BANKASI T.A.O.          ","value":"51c41f6349ede8108423f005"},{"key":"TAIB YATIRIMBANK A.S.              ","value":"51c41f6549ede8108423f01c"},{"key":"TC ZIRAAT BANKASI                  ","value":"51c41f6349ede8108423f002"},{"key":"TEKSTIL BANKASI A.S.               ","value":"51c41f6449ede8108423f019"},{"key":"THE ROYAL BANK OF SCOT.PLC MRK.EDIN","value":"51c41f6449ede8108423f00f"},{"key":"TURKISHBANK                        ","value":"51c41f6449ede8108423f012"},{"key":"TURKIYE FINANS KATILIM BANKASI A.S.","value":"51c41f6649ede8108423f02e"},{"key":"TURKLAND BANK A.S.","value":"51c41f6449ede8108423f018"},{"key":"YAPI VE KREDI BANKASI A.S.","value":"51c41f6449ede8108423f00e"}],
+  "friendly_name_list":[{"key":"Test","value":"TR920011100000000049638020,AKBANK T.A.S.                      "}],
+  "bank_name":null,
+  "amount":0.0,
+  "has_balance_request":false,
+  "balance_request_id":null}
+```
+
+* The result is a JSON object containing your request details and has balance request return true if the request succeeded.
+* Otherwise if there is no request, it is return to list of bank and friendly bank name list.
+
+## Withdrawal Money (Requires Authentication)
+
+<code>POST</code> .../api/FundingMoney/WithdrawalMoney
+
+**Params:**
+
+* Amount: Amount of money, integer places
+* AmountPrecision: Amount of money, decimal places
+* BankId: Selected Bank Id (bank_list)
+* BankName: Selected Bank Name (bank_list)
+* FriendlyNameSave: If you want to set a friendly record name for your bank account, set to true
+* FriendlyName: Set a friendly record name for bank account if FriendlyNameSave is true, otherwise this is not required.
+* Iban: IBAN number
+
+**Result:**
+``` json
+{
+  "iban":"TR920011100000000049638020",
+  "bank_list":null,
+  "friendly_name_list":null,
+  "bank_name":"AKBANK T.A.S.                      ",
+  "amount":15.0,
+  "has_balance_request":true,
+  "balance_request_id":"55dc62a7ba3d9d2978085bfa"
+}
+```
+
+* The result is a JSON object containing your request details and balance request id if the request succeeded.
