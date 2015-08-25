@@ -462,3 +462,18 @@ Use this method to submit a local currency(USD, TRY, PHP, EUR etc.) withdrawal r
 ```
 
 * The result is a JSON object containing your request details and balance request id if the request succeeded.
+
+## Cancel Operation (Deposit/Withdrawal) (Requires Authentication)
+
+<code>POST</code> .../api/FundingMoney/CancelOperation?balanceRequestId=55dc73adba3d9d32d8f8c56e
+
+**Params:**
+
+* balanceRequestId: For deposit, id field value / For withdrawal, balance_request_id field value
+
+**Result:**
+``` json
+true
+```
+
+* The result is true, the request succeeded.
