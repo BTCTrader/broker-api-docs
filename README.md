@@ -476,4 +476,4 @@ Use this method to submit a local currency(USD, TRY, PHP, EUR etc.) withdrawal r
 true
 ```
 
-* The result is true, the request succeeded.
+* The result is true if the request succeeded.
