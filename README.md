@@ -45,7 +45,8 @@ Here are some sample client implementations for our API:
   "volume":182.92,
   "low":752.00,
   "ask":767.49,
-  "open":758.31
+  "open":758.31,
+  "average":765.25
 }
 ```
 * last: Last BTC price
@@ -55,7 +56,7 @@ Here are some sample client implementations for our API:
 * bid: Highest current bid
 * ask: Lowest current ask
 * open: Price of the opening trade on the current day
-
+* average: Average Price in the last 24 hours
 ## Order Book
 
  <code>GET</code> .../api/orderbook 
