@@ -56,7 +56,6 @@ Here are some sample client implementations for our API:
 * bid: Highest current bid
 * ask: Lowest current ask
 * open: Price of the opening trade on the current day
-* average: Average Price in the last 24 hours
 ## Order Book
 
  <code>GET</code> .../api/orderbook 
