@@ -348,7 +348,7 @@ For limit orders:
 
 Use this method to check if the user has a pending local currency(USD, TRY, PHP, EUR etc.) deposit request.
 
-<code>GET</code> .../api/FundingMoney/DepositMoney
+<code>GET</code> .../api/DepositMoney
 
 **Result:** (null if the user does not have a deposit request)
 ``` json
@@ -380,7 +380,7 @@ Use this method to check if the user has a pending local currency(USD, TRY, PHP,
 
 Use this method to submit a local currency(USD, TRY, PHP, EUR etc.) deposit request.
 
-<code>POST</code> .../api/FundingMoney/DepositMoney
+<code>POST</code> .../api/DepositMoney
 
 **Params:**
 
@@ -417,7 +417,7 @@ Use this method to submit a local currency(USD, TRY, PHP, EUR etc.) deposit requ
 
 Use this method to check if the user has a pending local currency(USD, TRY, PHP, EUR etc.) withdrawal request.
 
-<code>GET</code> .../api/FundingMoney/WithdrawalMoney
+<code>GET</code> .../api/WithdrawalMoney
 
 **Result:**
 ``` json
@@ -438,7 +438,7 @@ Use this method to check if the user has a pending local currency(USD, TRY, PHP,
 
 Use this method to submit a local currency(USD, TRY, PHP, EUR etc.) withdrawal request.
 
-<code>POST</code> .../api/FundingMoney/WithdrawalMoney
+<code>POST</code> .../api/WithdrawalMoney
 
 **Params:**
 
@@ -465,13 +465,28 @@ Use this method to submit a local currency(USD, TRY, PHP, EUR etc.) withdrawal r
 
 * The result is a JSON object containing your request details and balance request id if the request succeeded.
 
-## Cancel Operation (Deposit/Withdrawal) (Requires Authentication)
+## Cancel Deposit Money Operation (Requires Authentication)
 
-<code>POST</code> .../api/FundingMoney/CancelOperation?balanceRequestId=55dc73adba3d9d32d8f8c56e
+<code>DELETE</code> .../api/DepositMoney/CancelOperation?balanceRequestId=55dc73adba3d9d32d8f8c56e
 
 **Params:**
 
-* balanceRequestId: For deposit, id field value / For withdrawal, balance_request_id field value
+* balanceRequestId: id field value
+
+**Result:**
+``` json
+true
+```
+
+* The result is true if the request succeeded.
+
+## Cancel Withdrawal Money Operation (Requires Authentication)
+
+<code>DELETE</code> .../api/WithdrawalMoney/CancelOperation?balanceRequestId=55dc73adba3d9d32d8f8c56e
+
+**Params:**
+
+* balanceRequestId: balance_request_id field value
 
 **Result:**
 ``` json
