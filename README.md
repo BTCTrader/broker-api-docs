@@ -162,7 +162,8 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
   "bitcoin_reserved": 0.25000000,
   "money_available": 750.00,
   "bitcoin_available": 0.75000000,
-  "fee_percentage": 0.2
+  "fee_percentage": 0.2,
+  "maker_fee_percentage": 0.05,
 }
 ```
 * money_balance: Total money balance including open orders and pending withdrawal requests
@@ -172,6 +173,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 * money_available: Money available for trading
 * bitcoin_available: Bitcoin available for trading
 * fee_percentage: Market taker fee percentage
+* maker_fee_percentage: Market maker fee percentage
 
 ## User Transactions (Requires Authentication)
 
