@@ -181,11 +181,10 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 **Params:**
 
-* offset: Skip that many transactions before beginning to return results.
-* limit: Limit result to that many transactions.
-* sort: Results are sorted by date and time. Provide "asc" for ascending results, "desc" for descending results.
+* offset: Skip that many transactions before beginning to return results, default value 0.
+* limit: Limit result to that many transactions, default value 25.
+* sort: Results are sorted by date and time. Provide "asc" for ascending results, "desc" for descending results, default value desc.
 
-***Important*** All three parameters are required.
 
 **Result:**
 ``` json
