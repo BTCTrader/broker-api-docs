@@ -181,9 +181,9 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 **Params:**
 
-* offset: Skip that many transactions before beginning to return results, default value 0.
-* limit: Limit result to that many transactions, default value 25.
-* sort: Results are sorted by date and time. Provide "asc" for ascending results, "desc" for descending results, default value desc.
+* offset: Skip that many transactions before beginning to return results. Default value is 0.
+* limit: Limit result to that many transactions. Default value is 25.
+* sort: Results are sorted by date and time. Provide "asc" for ascending results, "desc" for descending results. Default value is "desc".
 
 
 **Result:**
