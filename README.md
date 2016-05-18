@@ -57,7 +57,7 @@ Here are some sample client implementations for our API:
 * volume: Total volume in the last 24 hours
 * bid: Highest current bid
 * ask: Lowest current ask
-* open: Price of the opening trade on the current day
+* open: Price of the opening trade in the last 24 hours
 * average: Average Price in the last 24 hours
 
 ## Order Book
@@ -106,6 +106,51 @@ OR
 * tid: Trade ID
 * rice: Price of the trade
 * amount: Amount of the trade
+
+## OHCL Data (Daily)
+
+<code>GET</code> .../api/ohcldata 
+
+OR
+
+<code>GET</code> .../api/ohcldata?last=COUNT
+ 
+**Result:**
+``` json
+[
+    {
+     "Date":"2016-05-18T00:00:00",
+     "Open":1367.01,
+     "High":1375.61,
+     "Low":1362.61,
+     "Close":1375.61,
+     "Volume":125.17664557,
+     "Average":1371.06,
+     "DailyChangeAmount":0.63,
+     "DailyChangePercentage":8.6
+    },
+    {
+     "Date":"2016-05-17T00:00:00",
+     "Open":1365.13,
+     "High":1379.8,
+     "Low":1365.01,
+     "Close":1371.0,
+     "Volume":541.47093778,
+     "Average":1373.57,
+     "DailyChangeAmount":0.43,
+     "DailyChangePercentage":5.87
+    } 
+  ]
+```
+* Date: DateTime (In the exchange's local timezone and daily)
+* Open: Price of the opening trade on the Date
+* High: Highest trade price on the Date
+* Low: Lowest trade price on the Date
+* Close: Price of the closing trade on the Date
+* Volume: Total volume on the Date
+* Average: Average Price on the Date
+* DailyChangeAmount: Amount of difference between Close and Open on the Date
+* DailyChangePercentage: Percentage of difference between Close and Open on the Date
 
 ## API Authentication
 
