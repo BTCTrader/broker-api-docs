@@ -148,7 +148,7 @@ OR
 * Low: Lowest trade price on the Date
 * Close: Price of the closing trade on the Date
 * Volume: Total volume on the Date
-* Average: Average Price on the Date
+* Average: Average price on the Date
 * DailyChangeAmount: Amount of difference between Close and Open on the Date
 * DailyChangePercentage: Percentage of difference between Close and Open on the Date
 
