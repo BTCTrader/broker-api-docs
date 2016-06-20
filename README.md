@@ -109,11 +109,11 @@ OR
 
 ## OHCL Data (Daily)
 
-<code>GET</code> .../api/ohcldata 
+<code>GET</code> .../api/ohlcdata 
 
 OR
 
-<code>GET</code> .../api/ohcldata?last=COUNT
+<code>GET</code> .../api/ohlcdata?last=COUNT
  
 **Result:**
 ``` json
