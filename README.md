@@ -365,7 +365,7 @@ For limit orders:
 **Params:**
 
 * IsMarketOrder: 1 for market order, 0 for limit order
-* Type: must be set as "SelBtc"
+* Type: must be set as "SellBtc"
 
 For market orders:
 
