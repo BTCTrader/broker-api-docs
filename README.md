@@ -1,7 +1,7 @@
 # White label exchange API documentation
 The documentation for BTCTrader's white label exchange platform API.
 
-These docs are for the APIs of BTCTurk other BTCTrader partners.
+These docs are for the APIs of BTCTurk and other BTCTrader partners.
 
 ## Usage
 Append your exchange's URL to the beginning of the methods to use the API. For example, to get ticker info from BTCTurk, use [https://www.btcturk.com/api/ticker] (https://www.btcturk.com/api/ticker)
