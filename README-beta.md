@@ -389,22 +389,36 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 ## User Transactions (Requires Authentication)
 
- <code>GET</code> .../api/v1/users/transactions/trade
+ <code>POST</code> .../api/v1/users/transactions/trade
+
+ **Params**
  
+* **orderTypes**: string [] , 'buy', 'sell'
+* **currencySymbols**: string [] , 'btc', 'try', ...etc.
+* **startDate**: long Optional
+* **endDate**: long Optional
+
  OR
 
- <code>GET</code> .../api/v1/users/transactions/crypto
+ <code>POST</code> .../api/v1/users/transactions/crypto
+
+ **Params**
  
+* **balanceTypes**: string [] , 'deposit', 'withdrawal'
+* **currencySymbols**: string [] , 'btc', 'eth', ...etc.
+* **startDate**: long Optional
+* **endDate**: long Optional
+
  OR
  
- <code>GET</code> .../api/v1/users/transactions/fiat
+ <code>POST</code> .../api/v1/users/transactions/fiat
  
-**Params:**
-
-* **limit**: integer Limit result to that many transactions. Default value is 25.
-* **offset**: integer Skip that many transactions before beginning to return results. Default value is 0.
-* **sort**: string Results are sorted by date and time. Provide "asc" for ascending results, "desc" for descending results. Default value is "desc".
-
+ **Params**
+ 
+* **balanceTypes**: string [] , 'deposit', 'withdrawal'
+* **currencySymbols**: string [] , 'try' ...etc.
+* **startDate**: long Optional
+* **endDate**: long Optional
 
 **Result:**
 ``` json
