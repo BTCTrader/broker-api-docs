@@ -162,11 +162,11 @@ OR
 
 ## Order Book
 
- <code>GET</code> .../api/v2/orderbook?pairSymbol="" 
+ <code>GET</code> .../api/v2/orderbook?pairSymbol="BTCTRY" 
  
  OR
  
-  <code>GET</code> .../api/v2/orderbook?pairSymbol=""&limit=100
+  <code>GET</code> .../api/v2/orderbook?pairSymbol="BTCTRY"&limit=100
 
 
 **Parameters:**
@@ -210,11 +210,11 @@ OR
 
 ## Trades
  
- <code>GET</code> .../api/v2/trades?pairSymbol=""
+ <code>GET</code> .../api/v2/trades?pairSymbol="BTCTRY"
 
 OR
 
- <code>GET</code> .../api/v2/trades?pairSymbol=""?last=COUNT (Max. value for count parameter is 50)
+ <code>GET</code> .../api/v2/trades?pairSymbol="BTCTRY"?last=COUNT (Max. value for count parameter is 50)
 
 **Parameters:**
  * **pairSymbol**: string Mandatory
@@ -260,11 +260,11 @@ OR
 
 ## OHCL Data (Daily)
 
-<code>GET</code> .../api/v2/ohlc?pairSymbol=""
+<code>GET</code> .../api/v2/ohlc?pairSymbol="BTCTRY"
 
 OR
 
-<code>GET</code> .../api/ohlc?pairSymbol=""&last=COUNT
+<code>GET</code> .../api/ohlc?pairSymbol="BTCTRY"&last=COUNT
 
 **Parameters:**
  * **pairSymbol**: string Mandatory
