@@ -388,44 +388,44 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 ## Open Orders (Requires Authentication)
 
- <code>GET</code> .../api/v1/openOrders?pairSymbol=""
+ <code>GET</code> .../api/v1/openOrders?pairSymbol="BTCTRY"
  
 **Params:**
-* **pairsymbol**: string optional, pair symbol if not set returns all pairs open orders
+* **pairSymbol**: string optional, pair symbol if not set returns all pairs open orders
  
 **Result:**
 ``` json
 {
   "success": true,
-  "message": "string",
-  "code": "",
+  "message": null,
+  "code": 0,
   "data": {
     "asks": [
       {
-        "id": 0,
-        "price": "string",
-        "amount": "string",
-        "pairsymbol": "string",
-        "type": "string",
-        "method": "string",
-        "orderClientId": "string",
-        "time": 0,
-        "updateTime": 0,
-        "status": "string"
+        "id": 9932533,
+        "price": "21000.00",
+        "amount": "0.00100000",
+        "pairsymbol": "BTCTRY",
+        "type": "Sell",
+        "method": "Limit",
+        "orderClientId": "test",
+        "time": 1543994632920,
+        "updateTime": 1543994632920,
+        "status": "Untouched"
       }
     ],
     "bids": [
       {
-        "id": 0,
-        "price": "string",
-        "amount": "string",
-        "pairsymbol": "string",
-        "type": "string",
-        "method": "string",
-        "orderClientId": "string",
-        "time": 0,
-        "updateTime": 0,
-        "status": "string"
+        "id": 9932534,
+        "price": "20000.00",
+        "amount": "0.00100000",
+        "pairsymbol": "BTCTRY",
+        "type": "Buy",
+        "method": "Limit",
+        "orderClientId": "test",
+        "time": 1543996112263,
+        "updateTime": 1543996112263,
+        "status": "Untouched"
       }
     ]
   }
@@ -483,17 +483,17 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 ``` json
 {
   "success": true,
-  "message": "string",
-  "code": "",
+  "message": "OK",
+  "code": 0,
   "data": {
-    "id": 0,
-    "datetime": 0,
-    "type": "string",
-    "method": "string",
-    "price": "string",
-    "amount": "string",
-    "pairSymbol": "string",
-    "newOrderClientId": "string"
+    "id": 9932534,
+    "datetime": 1543996112263,
+    "type": "Buy",
+    "method": "Limit",
+    "price": "20000.00",
+    "amount": "0.00100000",
+    "pairSymbol": "BTCTRY",
+    "newOrderClientId": "test"
   }
 }
 ```
