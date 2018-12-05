@@ -367,16 +367,24 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 ``` json
 {
   "success": true,
-  "message": "string",
-  "code": "dbError",
+  "message": null,
+  "code": 0,
   "data": [
     {
-      "asset": "string",
-      "assetname": "string",
-      "balance": "string",
-      "locked": "string",
-      "free": "string"
+      "asset": "TRY",
+      "assetname": "Türk Lirası",
+      "balance": "103158.9412490031968651",
+      "locked": "1023.5699999896000000",
+      "free": "102135.3712490135968651"
+    },
+    {
+      "asset": "BTC",
+      "assetname": "Bitcoin",
+      "balance": "29.6027353000000000",
+      "locked": "0.0010000000000000",
+      "free": "29.6017353000000000"
     }
+    ...
   ]
 }
 ```
@@ -502,7 +510,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 ## All Orders (Requires Authentication)
 
- <code>GET</code> .../api/v1/allOrders
+ <code>GET</code> .../api/v1/allOrders?pairSymbol="BTCTRY"
 
 **Params:**
 
@@ -512,3 +520,60 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 * **endTime**: integer optional, end time
 * **page**: integer optional, page number
 * **limit**: integer optional, default 100 max 1000
+
+``` json
+{
+  "success": true,
+  "message": null,
+  "code": 0,
+  "data": [
+    {
+      "id": 9932534,
+      "price": "20000.00",
+      "amount": "0.00100000",
+      "pairsymbol": "BTCTRY",
+      "type": "Buy",
+      "method": "Limit",
+      "orderClientId": "test",
+      "time": 1543996112263,
+      "updateTime": 1543996112263,
+      "status": "Untouched"
+    },
+    {
+      "id": 9932533,
+      "price": "21000.00",
+      "amount": "0.00100000",
+      "pairsymbol": "BTCTRY",
+      "type": "Buy",
+      "method": "Limit",
+      "orderClientId": "test",
+      "time": 1543994632920,
+      "updateTime": 1543994632920,
+      "status": "Untouched"
+    },
+    {
+      "id": 9932523,
+      "price": "2000.00",
+      "amount": "0.01000000",
+      "pairsymbol": "BTCTRY",
+      "type": "Buy",
+      "method": "Limit",
+      "orderClientId": "test",
+      "time": 1543500891493,
+      "updateTime": 1543501769613,
+      "status": "Canceled"
+    }
+  ]
+}
+```
+
+* **id**: Order id
+* **price**: Price of the order
+* **amount**: Amount of the order
+* **pairsymbol**: Pair of the order
+* **type**: Type of order. Buy or Sell
+* **method**: Method of order.
+* **orderClientId**: Order client id created with (GUID if not set by user)
+* **time**: Unix time the order was inserted at
+* **updateTime**: Unix time last updated 
+* **status**: Status of the order. Untouched, Matched partialy, Canceled
