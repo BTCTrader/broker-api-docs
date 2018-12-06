@@ -18,8 +18,8 @@ Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on 
 
 ## General Information
 
-* For GET endpoints, parameters must be sent as a query string.
-* For POST, PUT, and DELETE endpoints, the parameters should be sent as a request body with content type application/x-www-form-urlencoded. 
+* For GET and DELETE endpoints, parameters must be sent as a query string.
+* For POST and PUT endpoints, the parameters should be sent as a request body with content type application/json. 
 * All timestamp parameters are in milliseconds.
 * All endpoints successful requests return JSON object model 
 ``` json
@@ -119,46 +119,6 @@ OR
 * **dailyPercent**: Price change percent in the last 24 hours
 * **denominatorSymbol**: Denominator currency symbol of the pair 
 * **numeratorSymbol**: Numerator currency symbol of the pair
-
-## Ticker Orders:
-* Current total open orders for each pair
-
-<code>GET</code> .../api/v2/ticker/orders
-
-**Result:**
-``` json
-{
-  "success": true,
-  "message": "",
-  "code": 0,
-  "data": [
-    {
-      "pairSymbol": "BTCTRY",
-      "bidsCount": 588,
-      "totalBidsPrice": "14372349.44",
-      "totalBidsAmount": "2241.447684423",
-      "asksCount": 1958,
-      "totalAsksPrice": "12491962231.87",
-      "totalAsksAmount": "281.98567826"
-    },
-    {
-      "symbol": "ETHTRY",
-      "bidsCount": 471,
-      "totalBidsPrice": "848020.43",
-      "totalBidsAmount": "1743.97498774",
-      "asksCount": 2242,
-      "totalAsksPrice": "1022121574153.97",
-      "totalAsksAmount": "4573.46976244"
-    },...
-}
-```
-* **pair**: Pair symbol
-* **bidsCount**: Count of bid orders
-* **totalBidsPrice**: Sum of bid orders prices
-* **totalBidsAmount**: Sum of bid orders amount
-* **asksCount**: Count of ask orders
-* **totalAsdsPrice**: Sum of ask orders prices
-* **totalAsksAmount**: Sum of ask orders amount
 
 ## Order Book
 
