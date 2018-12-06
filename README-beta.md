@@ -162,11 +162,11 @@ OR
 
 ## Order Book
 
- <code>GET</code> .../api/v2/orderbook?pairSymbol="" 
+ <code>GET</code> .../api/v2/orderbook?pairSymbol="BTCTRY" 
  
  OR
  
-  <code>GET</code> .../api/v2/orderbook?pairSymbol=""&limit=100
+ <code>GET</code> .../api/v2/orderbook?pairSymbol="BTCTRY"&limit=100
 
 
 **Parameters:**
