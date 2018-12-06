@@ -260,11 +260,11 @@ OR
 
 ## OHCL Data (Daily)
 
-<code>GET</code> .../api/v2/ohlc?pairSymbol=""
+<code>GET</code> .../api/v2/ohlc?pairSymbol="BTCTRY"
 
 OR
 
-<code>GET</code> .../api/ohlc?pairSymbol=""&last=COUNT
+<code>GET</code> .../api/v2/ohlc?pairSymbol="BTCTRY"&last=COUNT
 
 **Parameters:**
  * **pairSymbol**: string Mandatory
