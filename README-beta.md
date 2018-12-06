@@ -162,11 +162,11 @@ OR
 
 ## Order Book
 
- <code>GET</code> .../api/v2/orderbook?pairSymbol="BTCTRY" 
+ <code>GET</code> .../api/v2/orderbook?pairSymbol="" 
  
  OR
  
-  <code>GET</code> .../api/v2/orderbook?pairSymbol="BTCTRY"&limit=100
+  <code>GET</code> .../api/v2/orderbook?pairSymbol=""&limit=100
 
 
 **Parameters:**
@@ -210,11 +210,11 @@ OR
 
 ## Trades
  
- <code>GET</code> .../api/v2/trades?pairSymbol="BTCTRY"
+ <code>GET</code> .../api/v2/trades?pairSymbol=""
 
 OR
 
- <code>GET</code> .../api/v2/trades?pairSymbol="BTCTRY"?last=COUNT (Max. value for count parameter is 50)
+ <code>GET</code> .../api/v2/trades?pairSymbol=""?last=COUNT (Max. value for count parameter is 50)
 
 **Parameters:**
  * **pairSymbol**: string Mandatory
@@ -260,11 +260,11 @@ OR
 
 ## OHCL Data (Daily)
 
-<code>GET</code> .../api/v2/ohlc?pairSymbol="BTCTRY"
+<code>GET</code> .../api/v2/ohlc?pairSymbol=""
 
 OR
 
-<code>GET</code> .../api/ohlc?pairSymbol="BTCTRY"&last=COUNT
+<code>GET</code> .../api/ohlc?pairSymbol=""&last=COUNT
 
 **Parameters:**
  * **pairSymbol**: string Mandatory
@@ -394,6 +394,159 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 * **locked**: Asset locked amount in open orders and withdrawal requests
 * **free**: Asset available amount for trading
 
+
+## User Transactions (Requires Authentication)
+
+ <code>Get</code> .../api/v1/users/transactions/trade?type='buy'&type='sell'&symbol='btc'&symbol='try'&symbol='usdt'
+
+ **Params**
+ 
+* **type**: string array , {'buy', 'sell'}
+* **symbol**: string array , {'btc', 'try', ...etc.}
+* **startDate**: long Optional timestamp if null will return last 30 days
+* **endDate**: long Optional timestamp if null will return last 30 days
+
+**Result:**
+``` json
+{
+  "success": true,
+  "message": "SUCCESS",
+  "code": 0,
+  "data": [
+    {
+      "price": 33700,
+      "numeratorSymbol": "BTC",
+      "denominatorSymbol": "TRY",
+      "orderType": "sell",
+      "id": 5553445,
+      "timestamp": 1533314288287,
+      "amount": -0.003,
+      "fee": -0.0685423626,
+      "tax": -0.012337625268
+    },
+    {
+      "price": 33700,
+      "numeratorSymbol": "BTC",
+      "denominatorSymbol": "TRY",
+      "orderType": "sell",
+      "id": 5553444,
+      "timestamp": 1533314254297,
+      "amount": -0.001,
+      "fee": -0.0514067888,
+      "tax": -0.009253221984
+    },
+    {
+      "price": 4.77,
+      "numeratorSymbol": "USDT",
+      "denominatorSymbol": "TRY",
+      "orderType": "buy",
+      "id": 5553442,
+      "timestamp": 1533313928057,
+      "amount": 2.09,
+      "fee": -0.0152074094832,
+      "tax": -0.002737333706976
+    },...
+}
+```
+
+* **price**: Trade price
+* **numeratorSymbol**: Trade pair numerator symbol
+* **denominatorSymbol**: Trade pair denominator symbol
+* **orderType**: Trade type (buy,sell)
+* **id**: Trade id
+* **timestamp**: Unix timestamp
+* **amount**: Trade Amount (always negative if order type is sell)
+* **fee**: Trade fee
+* **tax**: Trade tax
+
+ <code>POST</code> .../api/v1/users/transactions/crypto
+
+ **Params**
+ 
+* **type**: string array , {'deposit', 'withdrawal'}
+* **symbol**: string array , {'btc', 'eth', 'xrp, ...etc.}
+* **startDate**: long Optional timestamp if null will return last 30 days
+* **endDate**: long Optional timestamp if null will return last 30 days
+
+**Result:**
+``` json
+{
+  "success": true,
+  "message": "SUCCESS",
+  "code": 0,
+  "data": [
+    {
+      "balanceType": "Deposit",
+      "currencySymbol": "XRP",
+      "id": 676961,
+      "timestamp": 1544079921450,
+      "funds": 10.8,
+      "amount": 0.9,
+      "fee": 0,
+      "tax": 0
+    },
+ 
+    {
+      "balanceType": "Withdrawal",
+      "currencySymbol": "XRP",
+      "id": 516136,
+      "timestamp": 1544079921450,
+      "funds": 8.9,
+      "amount": -1,
+      "fee": 0,
+      "tax": 0
+    },...
+  ]
+}
+```
+
+ <code>POST</code> .../api/v1/users/transactions/fiat
+ 
+ **Params**
+ 
+* **balanceTypes**: string array , {'deposit', 'withdrawal'}
+* **currencySymbols**: string array , {'try' ...etc.}
+* **startDate**: long Optional timestamp if null will return last 30 days
+* **endDate**: long Optional timestamp if null will return last 30 days
+
+**Result:**
+``` json
+{
+  "success": true,
+  "message": "SUCCESS",
+  "code": 0,
+  "data": [
+    {
+      "balanceType": "Deposit",
+      "currencySymbol": "TRY",
+      "id": 93214,
+      "timestamp": 1544079972687,
+      "funds": 100000,
+      "amount": 1000,
+      "fee": 0,
+      "tax": 0
+    },
+    {
+      "balanceType": "Deposit",
+      "currencySymbol": "TRY",
+      "id": 919664,
+      "timestamp": 1544079972687,
+      "funds": 100000.04,
+      "amount": 100000,
+      "fee": 0,
+      "tax": 0
+    },...
+}
+```
+* **balanceType**: Type of transaction (deposit,withdrawal)
+* **currencySymbol**: Transaction currency symbol 
+* **id**: Transaction id
+* **timestamp**: Unix timestamp
+* **amount**: Transaction Amount
+* **fee**: Transaction fee
+* **tax**: Transaction tax
+
+
 ## Open Orders (Requires Authentication)
 
  <code>GET</code> .../api/v1/openOrders?pairSymbol="BTCTRY"
@@ -470,7 +623,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 }
 ```
 
-* **result**: Success true if the order cancellation succeeded. False if it failed.
+* **Result**: Success true if the order cancellation succeeded. False if it failed.
 
 ## Submit Order (Requires Authentication)
 
