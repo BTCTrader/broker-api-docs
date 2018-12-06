@@ -218,7 +218,7 @@ OR
 * **price**: Price of the trade
 * **amount**: Amount of the trade
 
-## OHCL Data (Daily)
+## OHLC Data (Daily)
 
 <code>GET</code> .../api/v2/ohlc?pairSymbol="BTCTRY"
 
