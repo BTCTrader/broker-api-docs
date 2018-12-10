@@ -18,9 +18,10 @@ Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on 
 
 ## General Information
 
-* For GET and DELETE endpoints, parameters must be sent as a query string.
-* For POST and PUT endpoints, the parameters should be sent as a request body with content type application/json. 
+* For GET endpoints, parameters must be sent as a query string.
+* For POST, PUT, and DELETE endpoints, the parameters should be sent as a request body with content type application/x-www-form-urlencoded. 
 * All timestamp parameters are in milliseconds.
+* You can send pair symbol parameter in two formats, ex: BTCTRY or BTC_TRY
 * All endpoints successful requests return JSON object model 
 ``` json
   "success": true,
@@ -71,7 +72,8 @@ OR
   "data": [
     {
       "pair": "BTCTRY",
-      "timestamp": 1543828434676,
+	  "pairNormalized": "BTC_TRY",
+	  "timestamp": 1543828434676,
       "last": 20800,
       "high": 22000,
       "low": 20525,
@@ -87,6 +89,7 @@ OR
     },
     {
       "pair": "ETHTRY",
+	  "pairNormalized": "ETH_TRY",
       "timestamp": 1543828434678,
       "last": 590,
       "high": 618,
@@ -106,6 +109,7 @@ OR
 }
 ```
 * **pair**: Pair symbol
+* **pairNormalized**: Pair symbol with "_" in between.
 * **timestamp**: Current Unix time in milliseconds
 * **last**: Last BTC price
 * **high**: Highest trade price in the last 24 hours
@@ -170,11 +174,11 @@ OR
 
 ## Trades
  
- <code>GET</code> .../api/v2/trades?pairSymbol=""
+ <code>GET</code> .../api/v2/trades?pairSymbol="BTCTRY" 
 
 OR
 
- <code>GET</code> .../api/v2/trades?pairSymbol=""?last=COUNT (Max. value for count parameter is 50)
+ <code>GET</code> .../api/v2/trades?pairSymbol="BTCTRY"?last=COUNT (Max. value for count parameter is 50)
 
 **Parameters:**
  * **pairSymbol**: string Mandatory
@@ -191,6 +195,7 @@ OR
   "data": [
     {
       "pair": BTCTRY,
+	  "pairNormalized": BTC_TRY,
       "numerator": BTC,
       "denominator": TRY,
       "date": 1533650242300,
@@ -200,6 +205,7 @@ OR
     },
     {
       "pair": BTCTRY,
+	  "pairNormalized": BTC_TRY,
       "numerator": BTC,
       "denominator": TRY,
       "date": 1533650237143,
@@ -211,6 +217,7 @@ OR
   }
 ```
 * **pair**: Requested pair sybmol
+* **pairNormalized**: Request Pair symbol with "_" in between.
 * **numerator**: Numerator currency for the requested pair
 * **denominator**: Denominator currency for the requested pair
 * **date**: Unix time of the trade in milliseconds
@@ -218,7 +225,7 @@ OR
 * **price**: Price of the trade
 * **amount**: Amount of the trade
 
-## OHLC Data (Daily)
+## OHCL Data (Daily)
 
 <code>GET</code> .../api/v2/ohlc?pairSymbol="BTCTRY"
 
@@ -239,6 +246,7 @@ OR
   "data": [
     {
       "pairSymbol": "BTCTRY",
+	  "pairSymbolNormalized": "BTC_TRY",
       "time": 15334272,
       "open": "35999",
       "high": "35999",
@@ -251,6 +259,7 @@ OR
     },
     {
       "pairSymbol": "BTCTRY",
+	  "pairSymbolNormalized": "BTC_TRY",
       "time": 15333408,
       "open": "35999",
       "high": "35999",
@@ -264,7 +273,8 @@ OR
   ]
 }
 ```
-* **pair**: Requested pair sybmol
+* **pairSymbol**: Requested pair sybmol
+* **pairSymbolNormalized**: Requested pair sybmol with "_" in between.
 * **time**: Unix time 
 * **open**: Price of the opening trade on the time
 * **high**: Highest trade price on the time
@@ -557,6 +567,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 * **price**: Price of the order
 * **amount**: Amount of the order
 * **pairsymbol**: Pair of the order
+* **pairSymbolNormalized**: Pair of the order with "_" in between.
 * **type**: Type of order. Buy or Sell
 * **method**: Method of order. Limit, Stop Limit
 * **orderClientId**: Order client id created with (GUID if not set by user)
@@ -614,6 +625,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
     "price": "20000.00",
     "amount": "0.00100000",
     "pairSymbol": "BTCTRY",
+	"pairSymbolNormalized": "BTC_TRY",
     "newOrderClientId": "test"
   }
 }
@@ -645,6 +657,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
       "price": "20000.00",
       "amount": "0.00100000",
       "pairsymbol": "BTCTRY",
+	  "pairsymbolnormalized":"BTC_TRY",
       "type": "Buy",
       "method": "Limit",
       "orderClientId": "test",
@@ -657,6 +670,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
       "price": "21000.00",
       "amount": "0.00100000",
       "pairsymbol": "BTCTRY",
+  	  "pairsymbolnormalized":"BTC_TRY",
       "type": "Buy",
       "method": "Limit",
       "orderClientId": "test",
@@ -669,6 +683,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
       "price": "2000.00",
       "amount": "0.01000000",
       "pairsymbol": "BTCTRY",
+	  "pairsymbolnormalized":"BTC_TRY",
       "type": "Buy",
       "method": "Limit",
       "orderClientId": "test",
@@ -684,6 +699,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 * **price**: Price of the order
 * **amount**: Amount of the order
 * **pairsymbol**: Pair of the order
+* **pairSymbolNormalized**: Pair of the order with "_" in between.
 * **type**: Type of order. Buy or Sell
 * **method**: Method of order.
 * **orderClientId**: Order client id created with (GUID if not set by user)
