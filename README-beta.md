@@ -503,7 +503,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
       "amount": 100000,
       "fee": 0,
       "tax": 0
-    },...
+    } ...
 }
 ```
 * **balanceType**: Type of transaction (deposit, withdrawal)
