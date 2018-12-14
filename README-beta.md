@@ -57,11 +57,11 @@ Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on 
 
 OR
 
-<code>GET</code> .../api/v2/ticker?pairSymbol=""
+<code>GET</code> .../api/v2/ticker?pairSymbol=BTCTRY
 
 OR
 
-<code>GET</code> .../api/v2/ticker/currency?symbol=""
+<code>GET</code> .../api/v2/ticker/currency?symbol=USDT
 
 **Result:**
 ``` json
@@ -126,12 +126,11 @@ OR
 
 ## Order Book
 
- <code>GET</code> .../api/v2/orderbook?pairSymbol="BTCTRY" 
+ <code>GET</code> .../api/v2/orderbook?pairSymbol=BTCTRY 
  
  OR
  
- <code>GET</code> .../api/v2/orderbook?pairSymbol="BTCTRY"&limit=100
-
+ <code>GET</code> .../api/v2/orderbook?pairSymbol=BTCTRY&limit=100
 
 **Parameters:**
  * pairSymbol: string Mandatory
@@ -174,16 +173,15 @@ OR
 
 ## Trades
  
- <code>GET</code> .../api/v2/trades?pairSymbol="BTCTRY" 
+ <code>GET</code> .../api/v2/trades?pairSymbol=BTCTRY
 
 OR
 
- <code>GET</code> .../api/v2/trades?pairSymbol="BTCTRY"?last=COUNT (Max. value for count parameter is 50)
+ <code>GET</code> .../api/v2/trades?pairSymbol=BTCTRY&last=COUNT (Max. value for count parameter is 50)
 
 **Parameters:**
  * **pairSymbol**: string Mandatory
- * **last**: int Optional (default 50 max 1000)
- 
+ * **last**: int Optional (default 50 max 1000) 
  
 **Result:**
 
@@ -227,11 +225,11 @@ OR
 
 ## OHCL Data (Daily)
 
-<code>GET</code> .../api/v2/ohlc?pairSymbol="BTCTRY"
+<code>GET</code> .../api/v2/ohlc?pairSymbol=BTCTRY
 
 OR
 
-<code>GET</code> .../api/v2/ohlc?pairSymbol="BTCTRY"&last=COUNT
+<code>GET</code> .../api/v2/ohlc?pairSymbol=BTCTRY&last=COUNT
 
 **Parameters:**
  * **pairSymbol**: string Mandatory
@@ -367,12 +365,12 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 ## User Transactions (Requires Authentication)
 
- <code>Get</code> .../api/v1/users/transactions/trade?type='buy'&type='sell'&symbol='btc'&symbol='try'&symbol='usdt'
+ <code>Get</code> .../api/v1/users/transactions/trade?type=buy&type=sell&symbol=btc&symbol=try&symbol=usdt
 
  **Params**
  
-* **type**: string array , {'buy', 'sell'}
-* **symbol**: string array , {'btc', 'try', ...etc.}
+* **type**: string array, {'buy', 'sell'}
+* **symbol**: string array, {'btc', 'try', ...etc.}
 * **startDate**: long Optional timestamp if null will return last 30 days
 * **endDate**: long Optional timestamp if null will return last 30 days
 
@@ -508,7 +506,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
     },...
 }
 ```
-* **balanceType**: Type of transaction (deposit,withdrawal)
+* **balanceType**: Type of transaction (deposit, withdrawal)
 * **currencySymbol**: Transaction currency symbol 
 * **id**: Transaction id
 * **timestamp**: Unix timestamp
@@ -519,7 +517,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 ## Open Orders (Requires Authentication)
 
- <code>GET</code> .../api/v1/openOrders?pairSymbol="BTCTRY"
+ <code>GET</code> .../api/v1/openOrders?pairSymbol=BTCTRY
  
 **Params:**
 * **pairSymbol**: string optional, pair symbol if not set returns all pairs open orders
@@ -635,7 +633,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 ## All Orders (Requires Authentication)
 
- <code>GET</code> .../api/v1/allOrders?pairSymbol="BTCTRY"
+ <code>GET</code> .../api/v1/allOrders?pairSymbol=BTCTRY
 
 **Params:**
 
