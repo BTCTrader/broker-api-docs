@@ -72,8 +72,8 @@ OR
   "data": [
     {
       "pair": "BTCTRY",
-	  "pairNormalized": "BTC_TRY",
-	  "timestamp": 1543828434676,
+      "pairNormalized": "BTC_TRY",
+      "timestamp": 1543828434676,
       "last": 20800,
       "high": 22000,
       "low": 20525,
@@ -89,7 +89,7 @@ OR
     },
     {
       "pair": "ETHTRY",
-	  "pairNormalized": "ETH_TRY",
+      "pairNormalized": "ETH_TRY",
       "timestamp": 1543828434678,
       "last": 590,
       "high": 618,
@@ -193,7 +193,7 @@ OR
   "data": [
     {
       "pair": BTCTRY,
-	  "pairNormalized": BTC_TRY,
+      "pairNormalized": BTC_TRY,
       "numerator": BTC,
       "denominator": TRY,
       "date": 1533650242300,
@@ -203,7 +203,7 @@ OR
     },
     {
       "pair": BTCTRY,
-	  "pairNormalized": BTC_TRY,
+      "pairNormalized": BTC_TRY,
       "numerator": BTC,
       "denominator": TRY,
       "date": 1533650237143,
@@ -244,7 +244,7 @@ OR
   "data": [
     {
       "pairSymbol": "BTCTRY",
-	  "pairSymbolNormalized": "BTC_TRY",
+      "pairSymbolNormalized": "BTC_TRY",
       "time": 15334272,
       "open": "35999",
       "high": "35999",
@@ -257,7 +257,7 @@ OR
     },
     {
       "pairSymbol": "BTCTRY",
-	  "pairSymbolNormalized": "BTC_TRY",
+      "pairSymbolNormalized": "BTC_TRY",
       "time": 15333408,
       "open": "35999",
       "high": "35999",
@@ -369,8 +369,8 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
  **Params**
  
-* **type**: string array, {'buy', 'sell'}
-* **symbol**: string array, {'btc', 'try', ...etc.}
+* **type**: string array, {"buy", "sell"}
+* **symbol**: string array, {"btc", "try", ...etc.}
 * **startDate**: long Optional timestamp if null will return last 30 days
 * **endDate**: long Optional timestamp if null will return last 30 days
 
@@ -463,7 +463,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
       "amount": -1,
       "fee": 0,
       "tax": 0
-    },...
+    } ...
   ]
 }
 ```
@@ -472,8 +472,8 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
  
  **Params**
  
-* **balanceTypes**: string array , {'deposit', 'withdrawal'}
-* **currencySymbols**: string array , {'try' ...etc.}
+* **balanceTypes**: string array, {"deposit", "withdrawal"}
+* **currencySymbols**: string array, {"try" ...etc.}
 * **startDate**: long Optional timestamp if null will return last 30 days
 * **endDate**: long Optional timestamp if null will return last 30 days
 
@@ -533,7 +533,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
       {
         "id": 9932533,
         "price": "21000.00",
-        "amount": "0.00100000",
+        "amount": "0.001",
         "pairsymbol": "BTCTRY",
         "type": "Sell",
         "method": "Limit",
@@ -547,7 +547,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
       {
         "id": 9932534,
         "price": "20000.00",
-        "amount": "0.00100000",
+        "amount": "0.001",
         "pairsymbol": "BTCTRY",
         "type": "Buy",
         "method": "Limit",
@@ -623,7 +623,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
     "price": "20000.00",
     "amount": "0.00100000",
     "pairSymbol": "BTCTRY",
-	"pairSymbolNormalized": "BTC_TRY",
+    "pairSymbolNormalized": "BTC_TRY",
     "newOrderClientId": "test"
   }
 }
@@ -653,9 +653,9 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
     {
       "id": 9932534,
       "price": "20000.00",
-      "amount": "0.00100000",
+      "amount": "0.001",
       "pairsymbol": "BTCTRY",
-	  "pairsymbolnormalized":"BTC_TRY",
+      "pairsymbolnormalized":"BTC_TRY",
       "type": "Buy",
       "method": "Limit",
       "orderClientId": "test",
@@ -666,9 +666,9 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
     {
       "id": 9932533,
       "price": "21000.00",
-      "amount": "0.00100000",
+      "amount": "0.001",
       "pairsymbol": "BTCTRY",
-  	  "pairsymbolnormalized":"BTC_TRY",
+      "pairsymbolnormalized":"BTC_TRY",
       "type": "Buy",
       "method": "Limit",
       "orderClientId": "test",
@@ -681,7 +681,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
       "price": "2000.00",
       "amount": "0.01000000",
       "pairsymbol": "BTCTRY",
-	  "pairsymbolnormalized":"BTC_TRY",
+      "pairsymbolnormalized":"BTC_TRY",
       "type": "Buy",
       "method": "Limit",
       "orderClientId": "test",
