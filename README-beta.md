@@ -413,7 +413,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
       "amount": 2.09,
       "fee": -0.0152074094832,
       "tax": -0.002737333706976
-    },...
+    } ...
 }
 ```
 
