@@ -636,7 +636,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 * **PARAMETERS_ERROR:** One of the giving parameters is not correct.
 * **BALANCE_NOT_ENOUGH_WITHOUT_OPEN_ORDERS:** You do not have enough funds for this operation.
 * **BALANCE_NOT_ENOUGH:** The available funds is not enough for this operation.
-* **MIN_TOTAL:** The order quantity is less than the required minimum.
+* **MIN_TOTAL:** The order quantity is less than the minimum required.
 * **STOP_PRICE_GREATER_THAN_MARKET:** Stop buy price must be above current price.
 * **STOP_PRICE_LESS_THAN_MARKET:** Stop sell price must be bellow current price.
 
