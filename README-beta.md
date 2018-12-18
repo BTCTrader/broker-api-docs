@@ -534,6 +534,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
         "id": 9932533,
         "price": "21000.00",
         "amount": "0.001",
+	"quantity": "0.001",
         "pairsymbol": "BTCTRY",
         "type": "Sell",
         "method": "Limit",
@@ -548,6 +549,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
         "id": 9932534,
         "price": "20000.00",
         "amount": "0.001",
+	"quantity": "0.001",
         "pairsymbol": "BTCTRY",
         "type": "Buy",
         "method": "Limit",
@@ -564,6 +566,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 * **id**: Order id
 * **price**: Price of the order
 * **amount**: Amount of the order
+* **quantity**: quantity of the order
 * **pairsymbol**: Pair of the order
 * **pairSymbolNormalized**: Pair of the order with "_" in between.
 * **type**: Type of order. Buy or Sell
@@ -621,7 +624,8 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
     "type": "Buy",
     "method": "Limit",
     "price": "20000.00",
-    "amount": "0.00100000",
+    "stopPrice": "20000.00",
+    "quantity": "0.001",
     "pairSymbol": "BTCTRY",
     "pairSymbolNormalized": "BTC_TRY",
     "newOrderClientId": "test"
@@ -663,6 +667,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
       "id": 9932534,
       "price": "20000.00",
       "amount": "0.001",
+      "quantity": "0.001",
       "pairsymbol": "BTCTRY",
       "pairsymbolnormalized":"BTC_TRY",
       "type": "Buy",
@@ -676,6 +681,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
       "id": 9932533,
       "price": "21000.00",
       "amount": "0.001",
+      "quantity": "0.001",
       "pairsymbol": "BTCTRY",
       "pairsymbolnormalized":"BTC_TRY",
       "type": "Buy",
@@ -688,7 +694,8 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
     {
       "id": 9932523,
       "price": "2000.00",
-      "amount": "0.01000000",
+      "amount": "0.01",
+      "quantity": "0.01",
       "pairsymbol": "BTCTRY",
       "pairsymbolnormalized":"BTC_TRY",
       "type": "Buy",
@@ -705,6 +712,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 * **id**: Order id
 * **price**: Price of the order
 * **amount**: Amount of the order
+* **quantity**: quantity of the order
 * **pairsymbol**: Pair of the order
 * **pairSymbolNormalized**: Pair of the order with "_" in between.
 * **type**: Type of order. Buy or Sell
