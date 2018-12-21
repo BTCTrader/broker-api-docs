@@ -48,6 +48,18 @@ Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on 
 * Other requests are limited to 1 request per 100 miliseconds.
 * If you make more than 50 consequent unauthorized requests your IP address will be blocked
 
+## Pairs scale (Quantity/Price)
+
+| Pair          | Quantity Scale      |  Price Scale    |
+| :-------------|:-------------------:|:---------------:|
+| BTCTRY        | 8 				  | 0			    |
+| ETHTRY        | 8 				  | 0			    |
+| XRPTRY        | 8 				  | 2			    |
+| LTCTRY        | 8 				  | 2			    |
+| USDTTRY       | 2 				  | 2			    |
+| BTCUSDT       | 8 				  | 0			    |
+| XLMTRY        | 8 				  | 2			    |
+
 
 ## Ticker
 
