@@ -586,7 +586,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 * **orderClientId**: Order client id created with (GUID if not set by user)
 * **time**: Unix time the order was inserted at
 * **updateTime**: Unix time last updated 
-* **status**: Status of the order. Untouched, Matched partialy
+* **status**: Status of the order. Untouched (not matched), Partial (matched partially)
 
 
 ## Cancel Order (Requires Authentication)
