@@ -54,11 +54,11 @@ Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on 
 | :-------------|:-------------------:|:---------------:|
 | BTCTRY        | 8 				  | 0			    |
 | ETHTRY        | 8 				  | 0			    |
-| XRPTRY        | 8 				  | 2			    |
+| XRPTRY        | 4 				  | 2			    |
 | LTCTRY        | 8 				  | 2			    |
 | USDTTRY       | 2 				  | 2			    |
 | BTCUSDT       | 8 				  | 0			    |
-| XLMTRY        | 8 				  | 2			    |
+| XLMTRY        | 4 				  | 4			    |
 
 
 ## Ticker
