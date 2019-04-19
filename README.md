@@ -377,7 +377,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
  
 **Params:**
 
-* OrderMethod: 1 for market order, 0 for limit order, 3 for Stop market order
+* OrderMethod: 1 for market order, 0 for limit order, 2 for Stop limit order
 * OrderType: must be set as 0
 
 For market orders:
