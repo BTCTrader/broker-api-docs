@@ -188,7 +188,7 @@ You can create the API key from the Account > API Access page in your exchange a
 
 Nonce is a regular integer number. It must be increasing with every request you make.
 
-A common practice is to use unix time for that parameter.
+A common practice is to use unix timestamp for that parameter.
 
 #### Signature
 
@@ -208,7 +208,7 @@ After creating the parameters, you have to send them in the HTML Header of your 
 Example (C#):
 ```c#
 client.DefaultRequestHeaders.Add("X-PCK", yourAPIKey);
-client.DefaultRequestHeaders.Add("X-Stamp", stamp.ToString());
+client.DefaultRequestHeaders.Add("X-Stamp", nonce.ToString());
 client.DefaultRequestHeaders.Add("X-Signature", signature);
 ```
 
