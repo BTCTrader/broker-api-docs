@@ -196,7 +196,7 @@ Signature is a HMAC-SHA256 encoded message. The HMAC-SHA256 code must be generat
 
 Example (C#):
 ```c#
-string message = yourAPIKey + unixTimeStamp;
+string message = yourAPIKey + nonce;
 using (HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(yourPrivateKey)))
 {
    byte[] signatureBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(message));
