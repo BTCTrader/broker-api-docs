@@ -200,7 +200,7 @@ string message = yourAPIKey + nonce;
 using (HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(yourPrivateKey)))
 {
    byte[] signatureBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(message));
-   string X-Signature = Convert.ToBase64String(signatureBytes));
+   string X-Signature = Convert.ToBase64String(signatureBytes);
 }
 ```
 After creating the parameters, you have to send them in the HTML Header of your request with their name
