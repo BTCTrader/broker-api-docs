@@ -9,7 +9,7 @@ Append your exchange's URL to the beginning of the methods to use the API. For e
 ## Testing
 You can use our testing platforms to test the APIs. The balances on the test sites are not real and do not represent any real value. The testing platforms work on TESTNET and you can deposit TESTNET coins to your account. The testing platforms are:
 
-* [BTCTurk Test] (https://broker-api-dev.azurewebsites.net/)
+* [BTCTurk Test] (https://api-dev.btcturk.com/)
 
 **Important** Our mobile applications will not work with the testing platforms. They can only be synced with our live platforms.
 
