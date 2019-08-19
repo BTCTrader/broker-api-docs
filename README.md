@@ -1,4 +1,4 @@
-# Note: This document is deprecated, please use the new version [here](https://github.com/BTCTrader/broker-api-docs/blob/master/README-pro.md)
+# Note: This API will be deprecated soon. Please use the new version. [here.](https://github.com/BTCTrader/broker-api-docs/blob/master/README-pro.md)
 # White label exchange API documentation
 The documentation for BTCTrader's white label exchange platform API.
 
