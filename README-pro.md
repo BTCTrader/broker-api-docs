@@ -4,7 +4,9 @@ The documentation for BTCTrader's white label exchange platform API.
 These docs are for the APIs of BTCTurk and other BTCTrader partners.
 
 ## Usage
-Append your exchange's URL to the beginning of the methods to use the API. For example, to get ticker info from BTCTurk, use [https://api.btcturk.com/api/v2/ticker] (https://api.btcturk.com/api/v2/ticker)
+Append [https://api.btcturk.com/] URL to the beginning of the methods to use the API. 
+
+For example, to get ticker info from BTCTurk, use [https://api.btcturk.com/api/v2/ticker] (https://api.btcturk.com/api/v2/ticker)
 
 ## Testing
 You can use our testing platforms to test the APIs. The balances on the test sites are not real and do not represent any real value. The testing platforms work on TESTNET and you can deposit TESTNET coins to your account. The testing platforms are:
@@ -52,13 +54,22 @@ Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on 
 
 | Pair          | Quantity Scale      |  Price Scale    |
 | :-------------|:-------------------:|:---------------:|
-| BTCTRY        | 8 				  | 0			    |
-| ETHTRY        | 8 				  | 0			    |
-| XRPTRY        | 4 				  | 2			    |
-| LTCTRY        | 8 				  | 2			    |
-| USDTTRY       | 2 				  | 2			    |
-| BTCUSDT       | 8 				  | 0			    |
-| XLMTRY        | 4 				  | 4			    |
+| BTC/TRY        | 8 				  | 0			    |
+| ETH/TRY        | 8 				  | 0			    |
+| LTC/TRY        | 8 				  | 2			    |
+| USDT/TRY       | 2 				  | 2			    |
+| XLM/TRY        | 4 				  | 4			    |
+| XRP/TRY        | 4 				  | 2			    |
+| BTC/USDT       | 8 				  | 0			    |
+| ETH/USDT       | 8 				  | 1			    |
+| LTC/USDT       | 8 				  | 2			    |
+| XLM/USDT       | 4 				  | 4			    |
+| XRP/USDT       | 4 				  | 4			    |
+| ETH/BTC        | 8 				  | 8			    |
+| LTC/BTC        | 8 				  | 5			    |
+| XLM/BTC        | 4 				  | 8			    |
+| XRP/BTC        | 4 				  | 8			    |
+
 
 
 ## Ticker
