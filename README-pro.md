@@ -57,16 +57,19 @@ Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on 
 | BTC/TRY        | 8 				  | 0			    |
 | ETH/TRY        | 8 				  | 0			    |
 | LTC/TRY        | 8 				  | 2			    |
+| NEO/TRY        | 4 				  | 2			    |
 | USDT/TRY       | 2 				  | 2			    |
 | XLM/TRY        | 4 				  | 4			    |
 | XRP/TRY        | 4 				  | 2			    |
 | BTC/USDT       | 8 				  | 0			    |
 | ETH/USDT       | 8 				  | 1			    |
 | LTC/USDT       | 8 				  | 2			    |
+| NEO/USDT       | 4 				  | 2			    |
 | XLM/USDT       | 4 				  | 4			    |
 | XRP/USDT       | 4 				  | 4			    |
 | ETH/BTC        | 8 				  | 8			    |
 | LTC/BTC        | 8 				  | 5			    |
+| NEO/BTC        | 8 				  | 5			    |
 | XLM/BTC        | 4 				  | 8			    |
 | XRP/BTC        | 4 				  | 8			    |
 
