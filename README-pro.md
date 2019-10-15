@@ -74,7 +74,6 @@ Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on 
 | XRP/BTC        | 4 				  | 8			    |
 
 
-
 ## Ticker
 
 * If pairSymbol is not set, ticker for all pairs will be returned in a json array.
@@ -325,16 +324,18 @@ You can create the API key from the Account > API Access page in your exchange a
 
 #### Nonce
 
-Nonce is a regular integer number. It must be increasing with every request you make.
+Nonce is a regular integer number. It must be current timestamp in milliseconds 
 
-A common practice is to use unix time for that parameter.
+### NOTE: It is a must to sync your current time with api server time
+### You can check the server time from here [https://api.btcturk.com/api/v2/server/time]
 
 #### Signature
 
-Signature is a HMAC-SHA256 encoded message. The HMAC-SHA256 code must be generated using a private key that contains a timestamp and your API key
+Signature is a HMAC-SHA256 encoded message. The HMAC-SHA256 code must be generated using a private key that contains a timestamp as nonce and your API key
 
 Example (C#):
 ```c#
+long nonce = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 string message = yourAPIKey + nonce;
 using (HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(yourPrivateKey)))
 {
@@ -349,6 +350,7 @@ Example (C#):
 client.DefaultRequestHeaders.Add("X-PCK", yourAPIKey);
 client.DefaultRequestHeaders.Add("X-Stamp", nonce.ToString());
 client.DefaultRequestHeaders.Add("X-Signature", signature);
+client.DefaultRequestHeaders.Add("Content-Type", "application/json");
 ```
 
 Warning: Your IP address can be blocked if you make too many unauthorized requests. Make sure you implement the authentication method properly.
