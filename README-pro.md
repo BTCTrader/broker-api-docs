@@ -681,13 +681,13 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
  
 **Params:**
 
-* **quantity**: "decimal", Mandatory for market or limit orders.
-* **price**: "decimal", Price field will be ignored for market orders. Market orders get filled with different prices until your order is completely filled. There is a 5% limit on the difference between the first price and the last price. İ.e. you can't buy at a price more than 5% higher than the best sell at the time of order submission and you can't sell at a price less than 5% lower than the best buy at the time of order submission.
-* **stopPrice**: "decimal", For stop orders
-* **newOrderClientId**: "string", GUID if user did not set.
-* **orderMethod**: "enum", "limit", "market" , "stoplimit" or "stopMarket"
-* **orderType**: "enum", "buy", "sell"
-* **pairSymbol**: "string", ex: "BTCTRY", "ETHTRY"
+* **quantity**: (decimal) Mandatory for market or limit orders.
+* **price**: (decimal) Price field will be ignored for market orders. Market orders get filled with different prices until your order is completely filled. There is a 5% limit on the difference between the first price and the last price. İ.e. you can't buy at a price more than 5% higher than the best sell at the time of order submission and you can't sell at a price less than 5% lower than the best buy at the time of order submission.
+* **stopPrice**: (decimal) For stop orders
+* **newOrderClientId**: (string) GUID if user did not set.
+* **orderMethod**: (enum) { "limit", "market" , "stopLimit" or "stopMarket"}
+* **orderType**: (enum) {"buy", "sell"}
+* **pairSymbol**: (string) ex: "BTCTRY", "ETHTRY"
 
 
 **Result:**
