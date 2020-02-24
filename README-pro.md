@@ -261,65 +261,72 @@ OR
 * **price**: Price of the trade
 * **amount**: Amount of the trade
 
-## OHCL Data (Daily)
+## OHCL Data (uses GraphApi)
 
-<code>GET</code> .../api/v2/ohlc?pairSymbol=BTC_TRY
+This endpoint is served under another public domain. <code>graph-api.btcturk.com</code>
 
-OR
-
-<code>GET</code> .../api/v2/ohlc?pairSymbol=BTC_TRY&last=COUNT
+<code>GET</code> https://graph-api.btcturk.com/v1/ohlcs
 
 **Parameters:**
- * **pairSymbol**: (string) Mandatory ex. BTC_TRY
- * **last**: (int) Optional ex. 10
+ * **from**: (long) Optional - Unix timestamp in seconds - ex. 1582526983
+ * **to**: (long) Optional - Unix timestamp in seconds - ex. 1582526983
+ * **pair**: (string) Optional - Pair symbol - ex. BTCTRY
  
 **Result:**
 ``` json
-{
-  "data": [
-    {
-      "pairSymbol": "BTCTRY",
-      "pairSymbolNormalized": "BTC_TRY",
-      "time": 15334272,
-      "open": "35999",
-      "high": "35999",
-      "low": "35999",
-      "close": "35999",
-      "volume": "0.00921193",
-      "average": "35999",
-      "dailyChangeAmount": "0",
-      "dailyChangePercentage": "0"
-    },
-    {
-      "pairSymbol": "BTCTRY",
-      "pairSymbolNormalized": "BTC_TRY",
-      "time": 15333408,
-      "open": "35999",
-      "high": "35999",
-      "low": "35999",
-      "close": "35999",
-      "volume": "0.01659802",
-      "average": "35999",
-      "dailyChangeAmount": "0",
-      "dailyChangePercentage": "0"
-    }
-  ],
-  "success": true,
-  "message": null,
-  "code": 0
-}
+[
+  {
+    "pair": "BTCTRY",
+    "time": 1582070400,
+    "open": 61940,
+    "high": 62698,
+    "low": 58500,
+    "close": 58801,
+    "volume": 549.1858885452384,
+    "total": 33566080.63598728,
+    "average": 61119.71,
+    "dailyChangeAmount": -3139,
+    "dailyChangePercentage": -5.07
+  },
+  {
+    "pair": "BTCTRY",
+    "time": 1582156800,
+    "open": 59150,
+    "high": 61000,
+    "low": 58477,
+    "close": 59100,
+    "volume": 663.4533811472954,
+    "total": 39211283.23027989,
+    "average": 59101.79,
+    "dailyChangeAmount": -50,
+    "dailyChangePercentage": -0.08
+  },
+  {
+    "pair": "BTCTRY",
+    "time": 1582243200,
+    "open": 59104,
+    "high": 60399,
+    "low": 58801,
+    "close": 59704,
+    "volume": 387.62553661495724,
+    "total": 23127026.682461508,
+    "average": 59663.32,
+    "dailyChangeAmount": 600,
+    "dailyChangePercentage": 1.02
+  }
+]
 ```
-* **pairSymbol**: Requested pair symbol
-* **pairSymbolNormalized**: Requested pair symbol with "_" in between.
-* **timestamp**: Current Unix time in milliseconds
+* **pair**: Requested pair symbol
+* **timestamp**: Unix time in seconds
 * **open**: Price of the opening trade on the time
 * **high**: Highest trade price on the time
 * **low**: Lowest trade price on the time
 * **close**: Price of the closing trade on the time
 * **volume**: Total volume on the time
 * **average**: Average price on the time
-* **DailyChangeAmount**: Amount of difference between Close and Open on the Date
-* **DailyChangePercentage**: Percentage of difference between Close and Open on the Date
+* **total**: Total order amount on the time
+* **dailyChangeAmount**: Amount of difference between Close and Open on the Date
+* **dailyChangePercentage**: Percentage of difference between Close and Open on the Date
 
 # Authentication Required Endpoints
 ## API Authentication V1
