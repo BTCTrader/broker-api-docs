@@ -261,7 +261,7 @@ OR
 * **price**: Price of the trade
 * **amount**: Amount of the trade
 
-## OHCL Data (uses GraphApi)
+## OHCL Data (Returns daily cumulative data)
 
 This endpoint is served under another public domain. <code>graph-api.btcturk.com</code>
 
