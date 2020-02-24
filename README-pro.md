@@ -270,7 +270,7 @@ This endpoint is served under another public domain. <code>graph-api.btcturk.com
 **Parameters:**
  * **from**: (long) Optional - Unix timestamp in seconds - ex. 1582526983
  * **to**: (long) Optional - Unix timestamp in seconds - ex. 1582526983
- * **pair**: (string) Optional - Pair symbol - ex. BTCTRY
+ * **pair**: (string) Mandatory - Pair symbol - ex. BTCTRY or BTC_TRY
  
 **Result:**
 ``` json
