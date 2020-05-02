@@ -730,8 +730,8 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 * **orderId**: integer optional, If orderId set, it will return all orders greater than or equals to this order id
 * **pairSymbol**: pair symbol
-* **startTime**: integer optional, start time
-* **endTime**: integer optional, end time
+* **startDate**: integer optional, start time
+* **endDate**: integer optional, end time
 * **page**: integer optional, page number
 * **limit**: integer optional, default 100 max 1000
 
