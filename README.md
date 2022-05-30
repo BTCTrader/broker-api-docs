@@ -1,72 +1,82 @@
-# Note: This API will be deprecated soon. Please use the new version. [here.](https://github.com/BTCTrader/broker-api-docs/blob/master/README-pro.md)
+# Note: Please use the new version. [here.](https://github.com/BTCTrader/broker-api-docs/blob/master/README-pro.md)
+
+# You can find the current API docs here. https://docs.btcturk.com/
+
 # White label exchange API documentation
 The documentation for BTCTrader's white label exchange platform API.
 
 These docs are for the APIs of BTCTurk and other BTCTrader partners.
 
 ## Usage
-Append your exchange's URL to the beginning of the methods to use the API. For example, to get ticker info from BTCTurk, use [https://www.btcturk.com/api/ticker](https://www.btcturk.com/api/ticker)
-
-## Testing
-You can use our testing platforms to test the APIs. The balances on the test sites are not real and do not represent any real value. The testing platforms work on Bitcoin TESTNET and you can deposit TESTNET coins to your account. The testing platforms are:
-
-* [BTCTurk Test](https://test.btcturk.com)
-
-**Important** Our mobile applications will not work with the testing platforms. They can only be synced with our live platforms.
+Append your exchange's URL to the beginning of the methods to use the API. For example, to get ticker info from BTCTurk, use [Ticker endpoint](https://api.btcturk.com/api/v2/ticker)
 
 ## Questions & Problems
 Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on this github project to ask questions and report bugs.
 
-## Request Limits
-
-* .../api/ticker requests are limited to 10 requests per 100 miliseconds.
-* Other requests are limited to 1 request per 100 miliseconds.
-* If you make more than 50 consequent unauthorized requests your IP address will be blocked
-
+## Rate Limits
+*For more information, follow the rate limits page. [Rate limits](https://docs.btcturk.com/rate-limits)
 
 ## Ticker
 
-<code>GET</code> .../api/ticker 
+<code>GET</code> .../api/v2/ticker 
 
 **Result:**
 ``` json
 [
-	{
-	pair: "BTCTRY",
-	high: 20950,
-	last: 20659.95,
-	timestamp: 1508242980,
-	bid: 20556.51,
-	volume: 142.95,
-	low: 20500,
-	ask: 20659.95,
-	open: 20830,
-	average: 20761.68
-	},
-	{
-	pair: "ETHBTC",
-	high: 0,
-	last: 0,
-	timestamp: 1508242980,
-	bid: 0.06,
-	volume: 0,
-	low: 0,
-	ask: 0.0635,
-	open: 0,
-	average: 0
-	},
-	{
-	pair: "ETHTRY",
-	high: 1274,
-	last: 1227.99,
-	timestamp: 1508242980,
-	bid: 1210,
-	volume: 757.85,
-	low: 1210,
-	ask: 1227.99,
-	open: 1265.99,
-	average: 1238.73
-	}
+    {
+      "pair": "BTCTRY",
+      "pairNormalized": "BTC_TRY",
+      "timestamp": 1653897800073,
+      "last": 499979.00,
+      "high": 502000.00,
+      "low": 475074.00,
+      "bid": 499992.00,
+      "ask": 499996.00,
+      "open": 476868.00,
+      "volume": 151.46800143,
+      "average": 489551.46,
+      "daily": 23128.00,
+      "dailyPercent": 4.85,
+      "denominatorSymbol": "TRY",
+      "numeratorSymbol": "BTC",
+      "order": 1000
+    },
+    {
+      "pair": "ETHBTC",
+      "pairNormalized": "ETH_BTC",
+      "timestamp": 1653897780329,
+      "last": 0.06218,
+      "high": 0.06231,
+      "low": 0.06108,
+      "bid": 0.06212,
+      "ask": 0.06231,
+      "open": 0.06108,
+      "volume": 6.00868250,
+      "average": 0.06158,
+      "daily": 0.00123,
+      "dailyPercent": 1.80,
+      "denominatorSymbol": "BTC",
+      "numeratorSymbol": "ETH",
+      "order": 3024
+    },
+    {
+      "pair": "ETHTRY",
+      "pairNormalized": "ETH_TRY",
+      "timestamp": 1653897799785,
+      "last": 31159.00,
+      "high": 31182.00,
+      "low": 29107.00,
+      "bid": 31159.00,
+      "ask": 31160.00,
+      "open": 29309.00,
+      "volume": 1205.78869300,
+      "average": 30145.76,
+      "daily": 1851.00,
+      "dailyPercent": 6.31,
+      "denominatorSymbol": "TRY",
+      "numeratorSymbol": "ETH",
+      "order": 1042
+    }
 ]
 ```
 * last: Last BTC price
@@ -81,14 +91,45 @@ Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on 
 
 ## Order Book
 
- <code>GET</code> .../api/orderbook?pairSymbol=BTCTRY 
+ <code>GET</code> .../api/v2/orderbook?pairSymbol=BTCTRY
 
 **Result:**
 ``` json
 {
-  "timestamp":1439279819.0,
-  "bids":[["761.68","1.17474867"],["761.67","0.23928215"]],
-  "asks":[["767.48","0.12456411"],["767.49","4.07185043"]]
+  "data": {
+    "timestamp": 1653897927565.0,
+    "bids": [
+      [
+        "499852.00",
+        "0.00572421"
+      ],
+      [
+        "499851.00",
+        "0.00466286"
+      ],
+      [
+        "499850.00",
+        "0.32438288"
+      ]
+    ],
+    "asks": [
+      [
+        "500186.00",
+        "0.00137921"
+      ],
+      [
+        "500248.00",
+        "0.20000000"
+      ],
+      [
+        "500250.00",
+        "0.00085424"
+      ]
+    ]
+  },
+  "success": true,
+  "message": null,
+  "code": 0
 }
 ```
 * **bids:** Array of current open bids on the orderbook.
@@ -96,29 +137,41 @@ Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on 
 
 ## Trades
 
- <code>GET</code> .../api/trades?pairSymbol=BTCTRY 
+ <code>GET</code> .../api/v2/trades?pairSymbol=BTCTRY 
 
 OR
 
- <code>GET</code> .../api/trades?pairSymbol=BTCTRY&last=COUNT (Max. value for count parameter is 50)
+ <code>GET</code> .../api/v2/trades?pairSymbol=BTCTRY&last=COUNT (Max. value for count parameter is 50)
 
 **Result:**
 ``` json
-
-  [
+  {
+  "success": true,
+  "message": null,
+  "code": 0,
+  "data": [
     {
-     "date": 1439280491.0,
-     "tid": "55c9ad6b1ac4dc12b06131dc",
-     "price":767.47,
-     "amount":0.06486361
+      "pair": BTCTRY,
+      "pairNormalized": BTC_TRY,
+      "numerator": BTC,
+      "denominator": TRY,
+      "date": 1533650242300,
+      "tid": "636692470417865271",
+      "price": "33490",
+      "amount": "0.00032747"
     },
     {
-     "date": 1439280491.0,
-     "tid": "55c9ad6b1ac4dc12b06131dc",
-     "price":767.47,
-     "amount":0.06486361
-    } 
-  ]
+      "pair": BTCTRY,
+      "pairNormalized": BTC_TRY,
+      "numerator": BTC,
+      "denominator": TRY,
+      "date": 1533650237143,
+      "tid": "636692470367947749",
+      "price": "33245",
+      "amount": "0.00471901"
+    }
+    ]
+  }
 ```
 
 * date: Unix time of the trade (In the exchange's local timezone)
@@ -128,38 +181,25 @@ OR
 
 ## OHCL Data (Daily)
 
-<code>GET</code> .../api/ohlcdata 
+<code>GET</code> .../v1/ohlcs 
 
-OR
-
-<code>GET</code> .../api/ohlcdata?last=COUNT
- 
 **Result:**
 ``` json
 [
-    {
-     "Date":"2016-05-18T00:00:00",
-     "Open":1367.01,
-     "High":1375.61,
-     "Low":1362.61,
-     "Close":1375.61,
-     "Volume":125.17664557,
-     "Average":1371.06,
-     "DailyChangeAmount":0.63,
-     "DailyChangePercentage":8.6
-    },
-    {
-     "Date":"2016-05-17T00:00:00",
-     "Open":1365.13,
-     "High":1379.8,
-     "Low":1365.01,
-     "Close":1371.0,
-     "Volume":541.47093778,
-     "Average":1373.57,
-     "DailyChangeAmount":0.43,
-     "DailyChangePercentage":5.87
-    } 
-  ]
+   {
+    "pair": "BTCUSDT",
+    "time": 1639526400,
+    "open": 48250.0,
+    "high": 49500.0,
+    "low": 46601.0,
+    "close": 48820.0,
+    "volume": 199.490950394233,
+    "total": 9634561.91977406,
+    "average": 48295.73,
+    "dailyChangeAmount": 570.0,
+    "dailyChangePercentage": 1.18
+  }
+]
 ```
 * Date: DateTime (In the exchange's local timezone and daily)
 * Open: Price of the opening trade on the Date
@@ -217,137 +257,139 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 ## Account Balance (Requires Authentication)
 
- <code>GET</code> .../api/balance 
+ <code>GET</code> .../api/v1/users/balances
 
 **Result:**
 ``` json
 {
-    "try_balance": 1000,
-    "btc_balance": 0.84053883,
-    "eth_balance": 0.0660681,
-    "try_reserved": 1003.54,
-    "btc_reserved": 0,
-    "eth_reserved": 0,
-    "try_available": 1000,
-    "btc_available": 0.84053883,
-    "eth_available": 0.0660681,
-    "btctry_taker_fee_percentage": 0.005,
-    "btctry_maker_fee_percentage": 0.002,
-    "ethtry_taker_fee_percentage": 0.005,
-    "ethtry_maker_fee_percentage": 0.002,
-    "ethbtc_taker_fee_percentage": 0.004,
-    "ethbtc_maker_fee_percentage": 0.001
+  "data": [
+    {
+      "asset": "TRY",
+      "assetname": "Türk Lirası",
+      "balance": "103158.9412490031968651",
+      "locked": "1023.5699999896000000",
+      "free": "102135.3712490135968651"
+    },
+    {
+      "asset": "BTC",
+      "assetname": "Bitcoin",
+      "balance": "29.6027353000000000",
+      "locked": "0.0010000000000000",
+      "free": "29.6017353000000000"
+    }
+    ...
+  ],
+  "success": true,
+  "message": null,
+  "code": 0
 }
 ```
-* try_balance: Total money balance including open orders and pending withdrawal requests
-* btc_balance: Total bitcoin balance including open orders and pending withdrawal requests
-* eth_balance: Total ethereum balance including open orders and pending withdrawal requests
-* try_reserved: Money reserved in open orders
-* btc_reserved: Bitcoin reserved in open orders
-* eth_reserved: Ethereum reserved in open orders
-* try_available: Money available for trading
-* btc_available: Bitcoin available for trading
-* eth_available: Ethereum available for trading
-* btctry_taker_fee_percentage: Market taker fee percentage
-* btctry_maker_fee_percentage: Market maker fee percentage
-* ethtry_taker_fee_percentage: Market taker fee percentage
-* ethtry_maker_fee_percentage: Market maker fee percentage
-* ethbtc_taker_fee_percentage: Market taker fee percentage
-* ethbtc_maker_fee_percentage: Market maker fee percentage
-
 
 ## User Transactions (Requires Authentication)
 
- <code>GET</code> .../api/userTransactions?offset=OFFSET&limit=LIMIT&sort=SORT
+ <code>GET</code> .../api/v1/users/transactions/trade
 
 **Params:**
 
-* offset: Skip that many transactions before beginning to return results. Default value is 0.
-* limit: Limit result to that many transactions. Default value is 25.
-* sort: Results are sorted by date and time. Provide "asc" for ascending results, "desc" for descending results. Default value is "desc".
-
+* orderId: long, Optional you can not combine this parameter with other parameters. So you should send this parameter alone.
+* type: string array, {"buy", "sell"}
+* symbol: string array, {"btc", "try", ...etc.}
+* startDate: long, Optional timestamp if null will return last 30 days
+* endDate: long, Optional timestamp if null will return last 30 days
 
 **Result:**
 ``` json
-[
-  {
-    "id":"123456",
-    "date":"2015-08-11T11:40:17.278",
-    "operation":"buy",
-    "amount":1.9449023,
-    "currency":"TRY",
-    "price":734.52,
-	"funds":10,
-	"fee" : 0.005,
-	"tax" : 0.18
-  },
-  {
-    "id":"123456",
-    "date":"2015-08-11T11:40:17.325",
-    "operation":"commission",
-    "amount":0.0,
-    "currency":"TRY",
-    "price":0.0,
-	"funds":10,
-	"fee" : 0.005,
-	"tax" : 0.18
-  },
-  {
-    "id":"123456",
-    "date":"2015-08-11T11:44:10.162",
-    "operation":"sell",
-    "amount":-2.18674928,
-    "currency":"BTC",
-    "price":737.71,
-	"funds":10,
-	"fee" : 0.005,
-	"tax" : 0.18
-  },
-  {
-    "id":"123456",
-    "date":"2015-08-11T11:44:10.209",
-    "operation":"commission",
-    "amount":0.0,
-    "currency":"BTC",
-    "price":0.0,
-	"funds":10,
-	"fee" : 0.005,
-	"tax" : 0.18
-  }
-]
+{
+    "success": true,
+    "message": "SUCCESS",
+    "code": 0,
+    "data": [
+        {
+            "price": "313000.00",
+            "numeratorSymbol": "BTC",
+            "denominatorSymbol": "TRY",
+            "orderType": "sell",
+            "orderId": 22632304,
+            "id": 5758565,
+            "timestamp": 1628690323897,
+            "amount": "-0.00040000",
+            "fee": "-0.19098258",
+            "tax": "-0.03437687"
+        },
+        {
+            "price": "399742.00",
+            "numeratorSymbol": "BTC",
+            "denominatorSymbol": "TRY",
+            "orderType": "buy",
+            "orderId": 22632299,
+            "id": 5758564,
+            "timestamp": 1628690307310,
+            "amount": "0.00024971",
+            "fee": "-0.15226792",
+            "tax": "-0.02740823"
+        },
+        {
+            "price": "429715.00",
+            "numeratorSymbol": "BTC",
+            "denominatorSymbol": "TRY",
+            "orderType": "buy",
+            "orderId": 21075506,
+            "id": 5754843,
+            "timestamp": 1627556216413,
+            "amount": "0.00023229",
+            "fee": "-0.15226792",
+            "tax": "-0.02740823"
+        }
+    ]
+}
 ```
-
-* id: Transaction id
-* date: Date and time
-* operation: Type of transaction (sell,buy,deposit,commission,withdrawal)
-* btc: Bitcoin amount of transaction
-* currency: Money amount of transaction
-* price: The price of the trade if the transaction is a buy or sell
 
 ## Open Orders (Requires Authentication)
 
- <code>GET</code> .../api/openOrders?pairSymbol=BTCTRY
+ <code>GET</code> .../api/v1/openOrders
  
 **Result:**
 ``` json
-[
-  {
-    "id":"123654",
-    "datetime":"2015-07-28T04:43:00.271Z",
-    "type":"SellBtc",
-    "price":820.02,
-    "amount":4.65915461,
-	"PairSymbol" : "BTCTRY"
-  },
-  {
-    "id":"123657",
-    "datetime":"2015-07-30T10:01:39.619Z",
-    "type":"BuyBtc",
-    "price":790.61,
-    "amount":10.42124175,
-	"PairSymbol" : "BTCTRY"
-  },
+{   "success": true,
+    "message": null,
+    "code": 0,
+    "data": {
+        "asks": [{
+            "id": 16060235,
+            "price": "66800.00",
+            "amount": "0.09733687",
+            "quantity": "0.09733687",
+            "stopPrice": "0.00",
+            "pairSymbol": "BTCTRY",
+            "pairSymbolNormalized": "BTC_TRY",
+            "type": "sell",
+            "method": "limit",
+            "orderClientId": "da593000-6eb3-4a1c-ba26-c616122a0210",
+            "time": 0,
+            "updateTime": 1591286401373,
+            "status": "Untouched",
+            "leftAmount": "0.09733687"
+        }
+],
+        "bids": [{
+            "id": 16071095,
+            "price": "65817.00",
+            "amount": "0.08956055",
+            "quantity": "0.08956055",
+            "stopPrice": "0.00",
+            "pairSymbol": "BTCTRY",
+            "pairSymbolNormalized": "BTC_TRY",
+            "type": "buy",
+            "method": "limit",
+            "orderClientId": "da593000-6eb3-4a1c-ba26-c616122a0210",
+            "time": 0,
+            "updateTime": 1591352311273,
+            "status": "Untouched",
+            "leftAmount": "0.08956055"
+        }
 ]
+    }
+}
 ```
 
 * id: Order id
@@ -358,7 +400,7 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 ## Cancel Order (Requires Authentication)
 
- <code>POST</code> .../api/cancelOrder
+ <code>POST</code> .../api/v1/order
  
 **Params:**
 * id: order ID
@@ -366,7 +408,11 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 **Result:**
 ``` json
 {
-  "result":true
+  "success": true,
+  "message": "string",
+  "code": "",
+  "data": {
+  }
 }
 ```
 
@@ -374,69 +420,38 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 
 ## Buy Order (Requires Authentication)
 
- <code>POST</code> .../api/exchange
+ <code>POST</code> .../api/v1/order
  
 **Params:**
 
-* OrderMethod: 1 for market order, 0 for limit order, 2 for Stop limit order
-* OrderType: must be set as 0
+* quantity: decimal, mandatory for market or limit orders.
+* price: decimal, price field will be ignored for market orders. Market orders get filled with different prices until your order is completely filled. There is a 5% limit on the difference between the first price and the last price. İ.e. you can't buy at a price more than 5% higher than the best sell at the time of order submission and you can't sell at a price less than 5% lower than the best buy at the time of order submission.
+* stopPrice: decimal, for stop orders
+* newOrderClientId: string, GUID if user did not set.
+* orderMethod: enum, "limit", "market" or "stoplimit"
+* orderType: enum, "buy" or "sell"
+* pairSymbol: BTCTRY, ETHTRY etc.
 
-For market orders:
-
-* Price: Price field will be ignored for market orders. Market orders get filled with different prices until your order is completely filled. There is a 5% limit on the difference between the first price and the last price. İ.e. you can't buy at a price more than 5% higher than the best sell at the time of order submission
-* PricePrecision : Precision of the price (.001)
-* Amount: Amount field will be ignored for buy market orders. The amount will be calculated according to the total value that you send.
-* AmountPrecision : Precision of the amount (.001)
-* Total: The total amount you will spend with this order. You will buy from different prices until your order is filled as described above
-* TotalPrecision : Precision of the Total (.001)
-* TriggerPrice : For stop orders
-* TriggerPricePrecision : Precision of the TriggerPrice (.001)
-* PairSymbol : BTCTRY, ETHTRY 
 
 **Result:**
 ``` json
 {
-  "id":"123753",
-  "datetime":"2015-08-11T10:37:44.4786271Z",
-  "type":"Buy",
-  "price":739.16,
-  "amount":2.77891473
+  "success": true,
+  "message": "OK",
+  "code": 0,
+  "data": {
+    "id": 9932534,
+    "datetime": 1543996112263,
+    "type": "Buy",
+    "method": "Limit",
+    "price": "20000.00",
+    "stopPrice": "20000.00",
+    "quantity": "0.001",
+    "pairSymbol": "BTCTRY",
+    "pairSymbolNormalized": "BTC_TRY",
+    "newOrderClientId": "test"
+  }
 }
 ```
 
 * The result is a JSON object containing your order details and order ID if the request succeeded.
-
-## Sell Order (Requires Authentication)
-
- <code>POST</code> .../api/exchange 
- 
-**Params:**
-
-* OrderMethod: 1 for market order, 0 for limit order, 3 for Stop market order
-* OrderType: must be set as 1
-
-For market orders:
-
-* Price: Price field will be ignored for market orders. Market orders get filled with different prices until your order is completely filled. There is a 5% limit on the difference between the first price and the last price. İ.e. you can't buy at a price more than 5% higher than the best sell at the time of order submission
-* PricePrecision : Precision of the price (.001)
-* Amount: Amount field will be ignored for buy market orders. The amount will be calculated according to the total value that you send.
-* AmountPrecision : Precision of the amount (.001)
-* Total: The total amount you will spend with this order. You will buy from different prices until your order is filled as described above
-* TotalPrecision : Precision of the Total (.001)
-* TriggerPrice : For stop orders
-* TriggerPricePrecision : Precision of the TriggerPrice (.001)
-* PairSymbol : BTCTRY, ETHTRY
-
-**Result:**
-``` json
-{
-  "id":"147852",
-  "datetime":"2015-08-11T10:37:44.4786271Z",
-  "type":"Sell",
-  "price":739.16,
-  "amount":2.77891473
-}
-```
-
-* The result is a JSON object containing your order details and order ID if the request succeeded.
-
