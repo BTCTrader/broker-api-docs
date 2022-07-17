@@ -404,6 +404,44 @@ $headers = array(
 );
 ```
 
+Example (GoLang)
+```golang
+publicKey := "PUBLIC_KEY_HERE"
+privateKey := "PRIVATE_KEY_HERE"
+
+key, error := base64.StdEncoding.DecodeString(privateKey)
+
+if error != nil {
+	return error
+}
+
+nonce := fmt.Sprint(time.Now().UTC().UnixMilli())
+message := publicKey + nonce
+hmac := hmac.New(sha256.New, key)
+hmac.Write([]byte(message))
+signature := base64.StdEncoding.EncodeToString(hmac.Sum(nil))
+```
+
+Example (Node.js)
+```java
+const API_KEY = "API_KEY_HERE"
+const API_SECRET = "API_SECRET_HERE"
+    
+const stamp = (new Date()).getTime()
+const data = Buffer.from(`${API_KEY}${stamp}`, 'utf8')
+const buffer = crypto.createHmac('sha256', Buffer.from(API_SECRET, 'base64'))
+buffer.update(data)
+const digest = buffer.digest()
+const signature = Buffer.from(digest.toString('base64'), 'utf8').toString('utf8')
+
+return {
+    'Content-type': 'application/json',
+    "X-PCK": API_KEY,
+    "X-Stamp": stamp.toString(),
+    "X-Signature": signature,
+}
+```
+
 Warning: Your IP address can be blocked if you make too many unauthorized requests. Make sure you implement the authentication method properly. To prevent concurrent requests you may add 1 second sleep time before your authentication request.
 
 ## Account Balance (Requires Authentication)
