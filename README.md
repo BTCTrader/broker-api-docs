@@ -1,149 +1,228 @@
-# Note: Please use the new version. [here.](https://github.com/BTCTrader/broker-api-docs/blob/master/README-pro.md)
-
-# You can find the current API docs here. https://docs.btcturk.com/
-
 # White label exchange API documentation
 The documentation for BTCTrader's white label exchange platform API.
 
-These docs are for the APIs of BTCTurk and other BTCTrader partners.
+These docs are for the APIs of BtcTurk and other BTCTrader partners.
 
 ## Usage
-Append your exchange's URL to the beginning of the methods to use the API. For example, to get ticker info from BTCTurk, use [Ticker endpoint](https://api.btcturk.com/api/v2/ticker)
+Append [https://api.btcturk.com/] URL to the beginning of the methods to use the API.
+
+For example, to get ticker info from BTCTurk, use [https://api.btcturk.com/api/v2/ticker] (https://api.btcturk.com/api/v2/ticker)
+
+## Testing
+You can use our testing platforms to test the APIs. The balances on the test sites are not real and do not represent any real value. The testing platforms work on TESTNET and you can deposit TESTNET coins to your account. The testing platforms are:
+
+* [BTCTurk Test] (https://pro-dev.btcturk.com/) to create your test API keys.
+* [BTCTurk Test API] (https://api-dev.btcturk.com/)
+
+**Important** Our mobile applications will not work with the testing platforms. They can only be synced with our live platforms.
 
 ## Questions & Problems
-Please use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on this github project to ask questions and report bugs.
+Please check the [F.A.Q](https://github.com/BTCTrader/broker-api-docs/blob/master/FAQ.md) for Frequently Asked Questions. You can use the [issues](https://github.com/BTCTrader/broker-api-docs/issues) on this github project to ask questions and report bugs.
 
-## Rate Limits
-*For more information, follow the rate limits page. [Rate limits](https://docs.btcturk.com/rate-limits)
+# General API Information
+* API Base: **https://api.btcturk.com**
+* All timestamps are in miliseconds
+* Authentication related requests must be send as `application/json`
+* For `GET` endpoints, parameters must be sent as a `query string`.
+* For `POST`, `PUT`, and `DELETE` endpoints, the parameters may be sent as a
+  `query string` or in the `request body` with content type
+  `application/x-www-form-urlencoded`. You may mix parameters between both the
+  `query string` and `request body` if you wish to do so.
+* Parameters may be sent in any order.
+* If a parameter sent in both the `query string` and `request body`, the
+  `query string` parameter will be used.
+* You can send pair symbol parameter in two formats, ex: BTCTRY or BTC_TRY
+* All endpoints successful requests return JSON object model
+``` json
+  "success": true,
+  "message": string,
+  "code": int,
+  "data": []
+```
+* The "data" parameter including the response data information, could be null if the request is `DELETE`, just check the "success" parameter.
+* Please use V2 endpoint for all endpoints that don't require authentication (/api/v2/ticker, /api/v2/ohlc etc.)
+* Any endpoint could return an error as a JSON object.
+``` json
+  "success": false,
+  "message": string,
+  "code": int
+```
+* HTTP 400 return code for bad requests
+* HTTP 429 return code for exceeded request rate limit.
+* HTTP 422 return code for requests could not be processed.
+* HTTP 5xx return codes for internal server errors.
 
+
+# Request Limits
+* /api/v2/ticker requests are limited to 10 requests per 100 miliseconds.
+* Other requests are limited to 1 request per 100 miliseconds.
+* If you make more than 50 consequent unauthorized requests, your IP address will be blocked
+
+## Pairs scale (Quantity/Price)
+
+| Pair          | Quantity Scale      |  Price Scale    |
+| :-------------|:-------------------:|:---------------:|
+| BTC/TRY        | 8 				  | 0			    |
+| EOS/TRY        | 2 				  | 2			    |
+| ETH/TRY        | 8 				  | 0			    |
+| LTC/TRY        | 8 				  | 2			    |
+| NEO/TRY        | 4 				  | 2			    |
+| USDT/TRY       | 2 				  | 2			    |
+| XLM/TRY        | 4 				  | 4			    |
+| XRP/TRY        | 4 				  | 2			    |
+| BTC/USDT       | 8 				  | 0			    |
+| EOS/USDT       | 2 				  | 3 		    |
+| ETH/USDT       | 8 				  | 1			    |
+| LTC/USDT       | 8 				  | 2			    |
+| NEO/USDT       | 4 				  | 2			    |
+| XLM/USDT       | 4 				  | 4			    |
+| XRP/USDT       | 4 				  | 4			    |
+| EOS/BTC        | 4 				  | 5			    |
+| ETH/BTC        | 8 				  | 8			    |
+| LTC/BTC        | 8 				  | 5			    |
+| NEO/BTC        | 8 				  | 5			    |
+| XLM/BTC        | 4 				  | 8			    |
+| XRP/BTC        | 4 				  | 8			    |
+
+* You can use https://api.btcturk.com/api/v2/server/exchangeinfo for all tradable pairs and their quantity or price scales and more.
+
+# Public Endpoints
 ## Ticker
 
-<code>GET</code> .../api/v2/ticker 
+* If pairSymbol is not set, ticker for all pairs will be returned in a json array.
 
-**Result:**
-``` json
-[
-    {
-      "pair": "BTCTRY",
-      "pairNormalized": "BTC_TRY",
-      "timestamp": 1653897800073,
-      "last": 499979.00,
-      "high": 502000.00,
-      "low": 475074.00,
-      "bid": 499992.00,
-      "ask": 499996.00,
-      "open": 476868.00,
-      "volume": 151.46800143,
-      "average": 489551.46,
-      "daily": 23128.00,
-      "dailyPercent": 4.85,
-      "denominatorSymbol": "TRY",
-      "numeratorSymbol": "BTC",
-      "order": 1000
-    },
-    {
-      "pair": "ETHBTC",
-      "pairNormalized": "ETH_BTC",
-      "timestamp": 1653897780329,
-      "last": 0.06218,
-      "high": 0.06231,
-      "low": 0.06108,
-      "bid": 0.06212,
-      "ask": 0.06231,
-      "open": 0.06108,
-      "volume": 6.00868250,
-      "average": 0.06158,
-      "daily": 0.00123,
-      "dailyPercent": 1.80,
-      "denominatorSymbol": "BTC",
-      "numeratorSymbol": "ETH",
-      "order": 3024
-    },
-    {
-      "pair": "ETHTRY",
-      "pairNormalized": "ETH_TRY",
-      "timestamp": 1653897799785,
-      "last": 31159.00,
-      "high": 31182.00,
-      "low": 29107.00,
-      "bid": 31159.00,
-      "ask": 31160.00,
-      "open": 29309.00,
-      "volume": 1205.78869300,
-      "average": 30145.76,
-      "daily": 1851.00,
-      "dailyPercent": 6.31,
-      "denominatorSymbol": "TRY",
-      "numeratorSymbol": "ETH",
-      "order": 1042
-    }
-]
-```
-* last: Last BTC price
-* high: Highest trade price in the last 24 hours
-* low: Lowest trade price in the last 24 hours
-* volume: Total volume in the last 24 hours
-* bid: Highest current bid
-* ask: Lowest current ask
-* open: Price of the opening trade in the last 24 hours
-* average: Average Price in the last 24 hours
-* pair : Pair symbol
+<code>GET</code> ../api/v2/ticker
 
-## Order Book
+OR
 
- <code>GET</code> .../api/v2/orderbook?pairSymbol=BTCTRY
+<code>GET</code> .../api/v2/ticker?pairSymbol=BTC_TRY
+
+OR
+
+<code>GET</code> .../api/v2/ticker/currency?symbol=USDT
 
 **Result:**
 ``` json
 {
+  "data": [
+    {
+      "pair": "BTCTRY",
+      "pairNormalized": "BTC_TRY",
+      "timestamp": 1570024156166,
+      "last": 47500,
+      "high": 48710,
+      "low": 47000,
+      "bid": 47472,
+      "ask": 47670,
+      "open": 47988,
+      "volume": 304.41,
+      "average": 47850.41,
+      "daily": -318,
+      "dailyPercent": -1.02,
+      "denominatorSymbol": "TRY",
+      "numeratorSymbol": "BTC"
+    },
+    {
+      "pair": "ETHTRY",
+      "pairNormalized": "ETH_TRY",
+      "timestamp": 1570024156166,
+      "last": 1020,
+      "high": 1034,
+      "low": 999,
+      "bid": 1019,
+      "ask": 1023,
+      "open": 1032,
+      "volume": 5038.27,
+      "average": 1015.66,
+      "daily": -9,
+      "dailyPercent": -1.16,
+      "denominatorSymbol": "TRY",
+      "numeratorSymbol": "ETH"
+    }
+	...
+  ],
+  "success": true,
+  "message": "",
+  "code": 0,
+}
+```
+* **pairSymbol**: Requested pair symbol
+* **pairSymbolNormalized**: Requested pair symbol with "_" in between.
+* **timestamp**: Current Unix time in milliseconds
+* **last**: Last price
+* **high**: Highest trade price in last 24 hours
+* **low**: Lowest trade price in last 24 hours
+* **bid**: Highest current bid
+* **ask**: Lowest current ask
+* **open**: Price of the opening trade in last 24 hours
+* **volume**: Total volume in last 24 hours
+* **average**: Average Price in last 24 hours
+* **daily**: Price change in last 24 hours
+* **dailyPercent**: Price change percent in last 24 hours
+* **denominatorSymbol**: Denominator currency symbol of the pair
+* **numeratorSymbol**: Numerator currency symbol of the pair
+
+## Order Book
+
+<code>GET</code> .../api/v2/orderbook?pairSymbol=BTC_TRY
+
+OR
+
+<code>GET</code> .../api/v2/orderbook?pairSymbol=BTC_TRY&limit=100
+
+**Parameters:**
+* pairSymbol: string Mandatory
+* limit: int Optional (default 100 max 1000)
+
+**Result:**
+``` json
+{
+  "success": true,
+  "message": null,
+  "code": 0,
   "data": {
-    "timestamp": 1653897927565.0,
+    "timestamp": 1543836448605,
     "bids": [
       [
-        "499852.00",
-        "0.00572421"
+        "33245.00",
+        "2.10695265"
       ],
       [
-        "499851.00",
-        "0.00466286"
-      ],
-      [
-        "499850.00",
-        "0.32438288"
+        "33209.00",
+        "0.001"
       ]
     ],
     "asks": [
       [
-        "500186.00",
-        "0.00137921"
+        "33490.00",
+        "0.03681877"
       ],
       [
-        "500248.00",
-        "0.20000000"
-      ],
-      [
-        "500250.00",
-        "0.00085424"
+        "33499.00",
+        "1.00000000"
       ]
     ]
-  },
-  "success": true,
-  "message": null,
-  "code": 0
+  }
 }
 ```
+* **timestamp:** Current Unix time in milliseconds
 * **bids:** Array of current open bids on the orderbook.
 * **asks:** Array of current open askss on the orderbook.
 
 ## Trades
 
- <code>GET</code> .../api/v2/trades?pairSymbol=BTCTRY 
+<code>GET</code> .../api/v2/trades?pairSymbol=BTC_TRY
 
 OR
 
- <code>GET</code> .../api/v2/trades?pairSymbol=BTCTRY&last=COUNT (Max. value for count parameter is 50)
+<code>GET</code> .../api/v2/trades?pairSymbol=BTC_TRY&last=COUNT (Max. value for count parameter is 50)
+
+**Parameters:**
+* **pairSymbol**: string Mandatory
+* **last**: int Optional (default 50 max 1000)
 
 **Result:**
+
 ``` json
   {
   "success": true,
@@ -173,91 +252,201 @@ OR
     ]
   }
 ```
-
-* date: Unix time of the trade (In the exchange's local timezone)
-* tid: Trade ID
-* rice: Price of the trade
-* amount: Amount of the trade
+* **pair**: Requested pair symbol
+* **pairNormalized**: Request Pair symbol with "_" in between.
+* **numerator**: Numerator currency for the requested pair
+* **denominator**: Denominator currency for the requested pair
+* **date**: Unix time of the trade in milliseconds
+* **tid**: Trade ID
+* **price**: Price of the trade
+* **amount**: Amount of the trade
 
 ## OHCL Data (Daily)
 
-<code>GET</code> .../v1/ohlcs 
+<code>GET</code> .../api/v2/ohlc?pairSymbol=BTC_TRY
+
+OR
+
+<code>GET</code> .../api/v2/ohlc?pairSymbol=BTC_TRY&last=COUNT
+
+**Parameters:**
+* **pairSymbol**: (string) Mandatory ex. BTC_TRY
+* **last**: (int) Optional ex. 10
 
 **Result:**
 ``` json
-[
-   {
-    "pair": "BTCUSDT",
-    "time": 1639526400,
-    "open": 48250.0,
-    "high": 49500.0,
-    "low": 46601.0,
-    "close": 48820.0,
-    "volume": 199.490950394233,
-    "total": 9634561.91977406,
-    "average": 48295.73,
-    "dailyChangeAmount": 570.0,
-    "dailyChangePercentage": 1.18
-  }
-]
+{
+  "data": [
+    {
+      "pairSymbol": "BTCTRY",
+      "pairSymbolNormalized": "BTC_TRY",
+      "time": 15334272,
+      "open": "35999",
+      "high": "35999",
+      "low": "35999",
+      "close": "35999",
+      "volume": "0.00921193",
+      "average": "35999",
+      "dailyChangeAmount": "0",
+      "dailyChangePercentage": "0"
+    },
+    {
+      "pairSymbol": "BTCTRY",
+      "pairSymbolNormalized": "BTC_TRY",
+      "time": 15333408,
+      "open": "35999",
+      "high": "35999",
+      "low": "35999",
+      "close": "35999",
+      "volume": "0.01659802",
+      "average": "35999",
+      "dailyChangeAmount": "0",
+      "dailyChangePercentage": "0"
+    }
+  ],
+  "success": true,
+  "message": null,
+  "code": 0
+}
 ```
-* Date: DateTime (In the exchange's local timezone and daily)
-* Open: Price of the opening trade on the Date
-* High: Highest trade price on the Date
-* Low: Lowest trade price on the Date
-* Close: Price of the closing trade on the Date
-* Volume: Total volume on the Date
-* Average: Average price on the Date
-* DailyChangeAmount: Amount of difference between Close and Open on the Date
-* DailyChangePercentage: Percentage of difference between Close and Open on the Date
+* **pairSymbol**: Requested pair symbol
+* **pairSymbolNormalized**: Requested pair symbol with "_" in between.
+* **timestamp**: Current Unix time in milliseconds
+* **open**: Price of the opening trade on the time
+* **high**: Highest trade price on the time
+* **low**: Lowest trade price on the time
+* **close**: Price of the closing trade on the time
+* **volume**: Total volume on the time
+* **average**: Average price on the time
+* **DailyChangeAmount**: Amount of difference between Close and Open on the Date
+* **DailyChangePercentage**: Percentage of difference between Close and Open on the Date
 
-## API Authentication
+# Authentication Required Endpoints
+## API Authentication V1
 
-All API calls related to a user account require authentication.
+All API calls related to a user account, require authentication.
 
 You need to provide 3 parameters to authenticate a request:
 
-* "X-PCK": API key
+* "X-PCK": API Public Key
 * "X-Stamp": Nonce
 * "X-Signature": Signature
 
-#### API key
+#### API Public key
 
 You can create the API key from the Account > API Access page in your exchange account.
 
 #### Nonce
 
-Nonce is a regular integer number. It must be increasing with every request you make.
+Nonce is a regular integer number. It must be current timestamp in milliseconds.
 
-A common practice is to use unix timestamp for that parameter.
+### NOTE: It is a must to sync your current time with API server time which is in miliseconds format. Our servers are using UTC timezone.
+### You can check the server time from here [https://api.btcturk.com/api/v2/server/time]
 
 #### Signature
 
-Signature is a HMAC-SHA256 encoded message. The HMAC-SHA256 code must be generated using a private key that contains a timestamp and your API key
+Signature is a HMAC-SHA256 encoded message. The HMAC-SHA256 code must be generated using a private key that contains a timestamp as nonce and your API key
 
 Example (C#):
 ```c#
-string message = yourAPIKey + nonce;
-using (HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(yourPrivateKey)))
+var apiKey = YOUR_API_PUBLIC_KEY;
+var apiSecret = YOUR_API_SECRET;
+var nonce = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliSeconds();
+string message = apiKey + nonce;
+using (HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(apiSecret)))
 {
    byte[] signatureBytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(message));
-   string X-Signature = Convert.ToBase64String(signatureBytes);
+   string X_Signature = Convert.ToBase64String(signatureBytes));
 }
 ```
 After creating the parameters, you have to send them in the HTML Header of your request with their name
 
 Example (C#):
 ```c#
-client.DefaultRequestHeaders.Add("X-PCK", yourAPIKey);
+client.DefaultRequestHeaders.Add("X-PCK", apiKey);
 client.DefaultRequestHeaders.Add("X-Stamp", nonce.ToString());
 client.DefaultRequestHeaders.Add("X-Signature", signature);
+client.DefaultRequestHeaders.Add("Content-Type", "application/json");
 ```
 
-Warning: Your IP address can be blocked if you make too many unauthorized requests. Make sure you implement the authentication method properly.
+Example (Python):
+```python
+apiKey = YOUR_API_PUBLIC_KEY
+apiSecret = YOUR_API_SECRET
+apiSecret = base64.b64decode(apiSecret)
+stamp = str(int(time.time())*1000)
+data = "{}{}".format(apiKey, stamp).encode('utf-8')
+signature = hmac.new(apiSecret, data, hashlib.sha256).digest()
+signature = base64.b64encode(signature)
+
+headers= {
+  "X-PCK": apiKey,
+  "X-Stamp": str(nonce),
+  "X-Signature": str(base64.b64encode(signature).decode('utf-8')),
+  "Content-Type: application/json"
+}
+
+```
+
+Example (PHP):
+```PHP
+$apiKey = YOUR_API_PUBLIC_KEY;
+$apiSecret = YOUR_API_SECRET;
+$message = $apiKey.(time()*1000);
+$signatureBytes = hash_hmac('sha256', $message, base64_decode($apiSecret), true);
+$signature = base64_encode($signatureBytes);
+$nonce = time()*1000;
+$headers = array(
+  'X-PCK: '.$apiKey,
+  'X-Stamp: '.$nonce,
+  'X-Signature: '.$signature,
+  'Content-Type: application/json',
+);
+```
+
+Example (GoLang)
+```golang
+publicKey := "PUBLIC_KEY_HERE"
+privateKey := "PRIVATE_KEY_HERE"
+
+key, error := base64.StdEncoding.DecodeString(privateKey)
+
+if error != nil {
+	return error
+}
+
+nonce := fmt.Sprint(time.Now().UTC().UnixMilli())
+message := publicKey + nonce
+hmac := hmac.New(sha256.New, key)
+hmac.Write([]byte(message))
+signature := base64.StdEncoding.EncodeToString(hmac.Sum(nil))
+```
+
+Example (Node.js)
+```javascript
+const API_KEY = "API_KEY_HERE"
+const API_SECRET = "API_SECRET_HERE"
+    
+const stamp = (new Date()).getTime()
+const data = Buffer.from(`${API_KEY}${stamp}`, 'utf8')
+const buffer = crypto.createHmac('sha256', Buffer.from(API_SECRET, 'base64'))
+buffer.update(data)
+const digest = buffer.digest()
+const signature = Buffer.from(digest.toString('base64'), 'utf8').toString('utf8')
+
+return {
+    'Content-type': 'application/json',
+    "X-PCK": API_KEY,
+    "X-Stamp": stamp.toString(),
+    "X-Signature": signature,
+}
+```
+
+Warning: Your IP address can be blocked if you make too many unauthorized requests. Make sure you implement the authentication method properly. To prevent concurrent requests you may add 1 second sleep time before your authentication request.
 
 ## Account Balance (Requires Authentication)
 
- <code>GET</code> .../api/v1/users/balances
+<code>GET</code> .../api/v1/users/balances
 
 **Result:**
 ``` json
@@ -284,126 +473,232 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
   "code": 0
 }
 ```
+* **asset**: Asset symbol
+* **assetname**: Asset name
+* **balance**: Total asset balance including open orders and pending withdrawal requests
+* **locked**: Asset locked amount in open orders and withdrawal requests
+* **free**: Asset available amount for trading
 
 ## User Transactions (Requires Authentication)
 
- <code>GET</code> .../api/v1/users/transactions/trade
+<code>Get</code> .../api/v1/users/transactions/trade?type=buy&type=sell&symbol=btc&symbol=try&symbol=usdt
 
-**Params:**
+**Params**
 
-* orderId: long, Optional you can not combine this parameter with other parameters. So you should send this parameter alone.
-* type: string array, {"buy", "sell"}
-* symbol: string array, {"btc", "try", ...etc.}
-* startDate: long, Optional timestamp if null will return last 30 days
-* endDate: long, Optional timestamp if null will return last 30 days
+* **type**: string array, {"buy", "sell"}
+* **symbol**: string array, {"btc", "try", ...etc.}
+* **startDate**: long Optional timestamp if null will return last 30 days
+* **endDate**: long Optional timestamp if null will return last 30 days
 
 **Result:**
 ``` json
 {
-    "success": true,
-    "message": "SUCCESS",
-    "code": 0,
-    "data": [
-        {
-            "price": "313000.00",
-            "numeratorSymbol": "BTC",
-            "denominatorSymbol": "TRY",
-            "orderType": "sell",
-            "orderId": 22632304,
-            "id": 5758565,
-            "timestamp": 1628690323897,
-            "amount": "-0.00040000",
-            "fee": "-0.19098258",
-            "tax": "-0.03437687"
-        },
-        {
-            "price": "399742.00",
-            "numeratorSymbol": "BTC",
-            "denominatorSymbol": "TRY",
-            "orderType": "buy",
-            "orderId": 22632299,
-            "id": 5758564,
-            "timestamp": 1628690307310,
-            "amount": "0.00024971",
-            "fee": "-0.15226792",
-            "tax": "-0.02740823"
-        },
-        {
-            "price": "429715.00",
-            "numeratorSymbol": "BTC",
-            "denominatorSymbol": "TRY",
-            "orderType": "buy",
-            "orderId": 21075506,
-            "id": 5754843,
-            "timestamp": 1627556216413,
-            "amount": "0.00023229",
-            "fee": "-0.15226792",
-            "tax": "-0.02740823"
-        }
-    ]
+  "success": true,
+  "message": "SUCCESS",
+  "code": 0,
+  "data": [
+    {
+      "price": 33700,
+      "numeratorSymbol": "BTC",
+      "denominatorSymbol": "TRY",
+      "orderType": "sell",
+      "id": 5553445,
+      "timestamp": 1533314288287,
+      "amount": -0.003,
+      "fee": -0.0685423626,
+      "tax": -0.012337625268
+    },
+    {
+      "price": 33700,
+      "numeratorSymbol": "BTC",
+      "denominatorSymbol": "TRY",
+      "orderType": "sell",
+      "id": 5553444,
+      "timestamp": 1533314254297,
+      "amount": -0.001,
+      "fee": -0.0514067888,
+      "tax": -0.009253221984
+    },
+    {
+      "price": 4.77,
+      "numeratorSymbol": "USDT",
+      "denominatorSymbol": "TRY",
+      "orderType": "buy",
+      "id": 5553442,
+      "timestamp": 1533313928057,
+      "amount": 2.09,
+      "fee": -0.0152074094832,
+      "tax": -0.002737333706976
+    } ...
 }
 ```
+
+* **price**: Trade price
+* **numeratorSymbol**: Trade pair numerator symbol
+* **denominatorSymbol**: Trade pair denominator symbol
+* **orderType**: Trade type (buy,sell)
+* **id**: Trade id
+* **timestamp**: Unix timestamp
+* **amount**: Trade Amount (always negative if order type is sell)
+* **fee**: Trade fee
+* **tax**: Trade tax
+
+<code>POST</code> .../api/v1/users/transactions/crypto
+
+**Params**
+
+* **type**: string array , {'deposit', 'withdrawal'}
+* **symbol**: string array , {'btc', 'eth', 'xrp, ...etc.}
+* **startDate**: long Optional timestamp if null will return last 30 days
+* **endDate**: long Optional timestamp if null will return last 30 days
+
+**Result:**
+``` json
+{
+  "success": true,
+  "message": "SUCCESS",
+  "code": 0,
+  "data": [
+    {
+      "balanceType": "Deposit",
+      "currencySymbol": "XRP",
+      "id": 676961,
+      "timestamp": 1544079921450,
+      "funds": 10.8,
+      "amount": 0.9,
+      "fee": 0,
+      "tax": 0
+    },
+ 
+    {
+      "balanceType": "Withdrawal",
+      "currencySymbol": "XRP",
+      "id": 516136,
+      "timestamp": 1544079921450,
+      "funds": 8.9,
+      "amount": -1,
+      "fee": 0,
+      "tax": 0
+    } ...
+  ]
+}
+```
+
+<code>POST</code> .../api/v1/users/transactions/fiat
+
+**Params**
+
+* **balanceTypes**: string array, {"deposit", "withdrawal"}
+* **currencySymbols**: string array, {"try" ...etc.}
+* **startDate**: long Optional timestamp if null will return last 30 days
+* **endDate**: long Optional timestamp if null will return last 30 days
+
+**Result:**
+``` json
+{
+  "success": true,
+  "message": "SUCCESS",
+  "code": 0,
+  "data": [
+    {
+      "balanceType": "Deposit",
+      "currencySymbol": "TRY",
+      "id": 93214,
+      "timestamp": 1544079972687,
+      "funds": 100000,
+      "amount": 1000,
+      "fee": 0,
+      "tax": 0
+    },
+    {
+      "balanceType": "Deposit",
+      "currencySymbol": "TRY",
+      "id": 919664,
+      "timestamp": 1544079972687,
+      "funds": 100000.04,
+      "amount": 100000,
+      "fee": 0,
+      "tax": 0
+    } ...
+}
+```
+* **balanceType**: Type of transaction (deposit, withdrawal)
+* **currencySymbol**: Transaction currency symbol
+* **id**: Transaction id
+* **timestamp**: Unix timestamp
+* **amount**: Transaction Amount
+* **fee**: Transaction fee
+* **tax**: Transaction tax
+
 
 ## Open Orders (Requires Authentication)
 
- <code>GET</code> .../api/v1/openOrders
- 
+<code>GET</code> .../api/v1/openOrders?pairSymbol=BTC_TRY
+
+**Params:**
+* **pairSymbol**: string optional, pair symbol if not set returns all pairs open orders
+
 **Result:**
 ``` json
-{   "success": true,
-    "message": null,
-    "code": 0,
-    "data": {
-        "asks": [{
-            "id": 16060235,
-            "price": "66800.00",
-            "amount": "0.09733687",
-            "quantity": "0.09733687",
-            "stopPrice": "0.00",
-            "pairSymbol": "BTCTRY",
-            "pairSymbolNormalized": "BTC_TRY",
-            "type": "sell",
-            "method": "limit",
-            "orderClientId": "da593000-6eb3-4a1c-ba26-c616122a0210",
-            "time": 0,
-            "updateTime": 1591286401373,
-            "status": "Untouched",
-            "leftAmount": "0.09733687"
-        }
-],
-        "bids": [{
-            "id": 16071095,
-            "price": "65817.00",
-            "amount": "0.08956055",
-            "quantity": "0.08956055",
-            "stopPrice": "0.00",
-            "pairSymbol": "BTCTRY",
-            "pairSymbolNormalized": "BTC_TRY",
-            "type": "buy",
-            "method": "limit",
-            "orderClientId": "da593000-6eb3-4a1c-ba26-c616122a0210",
-            "time": 0,
-            "updateTime": 1591352311273,
-            "status": "Untouched",
-            "leftAmount": "0.08956055"
-        }
-]
-    }
+{
+  "success": true,
+  "message": null,
+  "code": 0,
+  "data": {
+    "asks": [
+      {
+        "id": 9932533,
+        "price": "21000.00",
+        "amount": "0.001",
+	"quantity": "0.001",
+        "pairsymbol": "BTCTRY",
+        "type": "Sell",
+        "method": "Limit",
+        "orderClientId": "test",
+        "time": 1543994632920,
+        "updateTime": 1543994632920,
+        "status": "Untouched"
+      }
+    ],
+    "bids": [
+      {
+        "id": 9932534,
+        "price": "20000.00",
+        "amount": "0.001",
+	"quantity": "0.001",
+        "pairsymbol": "BTCTRY",
+        "type": "Buy",
+        "method": "Limit",
+        "orderClientId": "test",
+        "time": 1543996112263,
+        "updateTime": 1543996112263,
+        "status": "Untouched"
+      }
+    ]
+  }
 }
 ```
 
-* id: Order id
-* datetime: Date and time the order was inserted at
-* type: Type of order. BuyBtc or SellBtc
-* price: Price of the order
-* amount: Bitcoin amount of the order
+* **id**: Order id
+* **price**: Price of the order
+* **amount**: Amount of the order
+* **quantity**: quantity of the order
+* **pairsymbol**: Pair of the order
+* **pairSymbolNormalized**: Pair of the order with "_" in between.
+* **type**: Type of order. Buy or Sell
+* **method**: Method of order. Limit, Stop Limit
+* **orderClientId**: Order client id created with (GUID if not set by user)
+* **time**: Unix time the order was inserted at
+* **updateTime**: Unix time last updated
+* **status**: Status of the order. Untouched (not matched), Partial (matched partially)
+
 
 ## Cancel Order (Requires Authentication)
 
- <code>POST</code> .../api/v1/order
- 
+<code>DELETE</code> .../api/v1/order?id=1
+
 **Params:**
-* id: order ID
+* **id**: order ID
 
 **Result:**
 ``` json
@@ -416,21 +711,21 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 }
 ```
 
-* result: True if the order cancellation succeeded. False if it failed.
+* **Result**: Success true if the order cancellation succeeded. False if it failed.
 
-## Buy Order (Requires Authentication)
+## Submit Order (Requires Authentication)
 
- <code>POST</code> .../api/v1/order
- 
+<code>POST</code> .../api/v1/order
+
 **Params:**
 
-* quantity: decimal, mandatory for market or limit orders.
-* price: decimal, price field will be ignored for market orders. Market orders get filled with different prices until your order is completely filled. There is a 5% limit on the difference between the first price and the last price. İ.e. you can't buy at a price more than 5% higher than the best sell at the time of order submission and you can't sell at a price less than 5% lower than the best buy at the time of order submission.
-* stopPrice: decimal, for stop orders
-* newOrderClientId: string, GUID if user did not set.
-* orderMethod: enum, "limit", "market" or "stoplimit"
-* orderType: enum, "buy" or "sell"
-* pairSymbol: BTCTRY, ETHTRY etc.
+* **quantity**: (decimal) Mandatory for market or limit orders.
+* **price**: (decimal) Price field will be ignored for market orders. Market orders get filled with different prices until your order is completely filled. There is a 5% limit on the difference between the first price and the last price. İ.e. you can't buy at a price more than 5% higher than the best sell at the time of order submission and you can't sell at a price less than 5% lower than the best buy at the time of order submission.
+* **stopPrice**: (decimal) For stop orders
+* **newOrderClientId**: (string) GUID if user did not set.
+* **orderMethod**: (enum) { "limit", "market" , "stopLimit" or "stopMarket"}
+* **orderType**: (enum) {"buy", "sell"}
+* **pairSymbol**: (string) ex: "BTCTRY", "ETHTRY"
 
 
 **Result:**
@@ -455,3 +750,90 @@ Warning: Your IP address can be blocked if you make too many unauthorized reques
 ```
 
 * The result is a JSON object containing your order details and order ID if the request succeeded.
+
+**Expected Errors:**
+
+* **PARAMETERS_ERROR:** One of the giving parameters is not correct.
+* **BALANCE_NOT_ENOUGH_WITHOUT_OPEN_ORDERS:** You do not have enough funds for this operation.
+* **BALANCE_NOT_ENOUGH:** The available funds is not enough for this operation.
+* **MIN_TOTAL:** The order quantity is less than the minimum required.
+* **STOP_PRICE_GREATER_THAN_MARKET:** Stop buy price must be above current price.
+* **STOP_PRICE_LESS_THAN_MARKET:** Stop sell price must be bellow current price.
+
+## All Orders (Requires Authentication)
+
+<code>GET</code> .../api/v1/allOrders?pairSymbol=BTC_TRY
+
+**Params:**
+
+* **orderId**: integer optional, If orderId set, it will return all orders greater than or equals to this order id
+* **pairSymbol**: pair symbol
+* **startTime**: integer optional, start time
+* **endTime**: integer optional, end time
+* **page**: integer optional, page number
+* **limit**: integer optional, default 100 max 1000
+
+``` json
+{
+  "success": true,
+  "message": null,
+  "code": 0,
+  "data": [
+    {
+      "id": 9932534,
+      "price": "20000.00",
+      "amount": "0.001",
+      "quantity": "0.001",
+      "pairsymbol": "BTCTRY",
+      "pairsymbolnormalized":"BTC_TRY",
+      "type": "Buy",
+      "method": "Limit",
+      "orderClientId": "test",
+      "time": 1543996112263,
+      "updateTime": 1543996112263,
+      "status": "Untouched"
+    },
+    {
+      "id": 9932533,
+      "price": "21000.00",
+      "amount": "0.001",
+      "quantity": "0.001",
+      "pairsymbol": "BTCTRY",
+      "pairsymbolnormalized":"BTC_TRY",
+      "type": "Buy",
+      "method": "Limit",
+      "orderClientId": "test",
+      "time": 1543994632920,
+      "updateTime": 1543994632920,
+      "status": "Untouched"
+    },
+    {
+      "id": 9932523,
+      "price": "2000.00",
+      "amount": "0.01",
+      "quantity": "0.01",
+      "pairsymbol": "BTCTRY",
+      "pairsymbolnormalized":"BTC_TRY",
+      "type": "Buy",
+      "method": "Limit",
+      "orderClientId": "test",
+      "time": 1543500891493,
+      "updateTime": 1543501769613,
+      "status": "Canceled"
+    }
+  ]
+}
+```
+
+* **id**: Order id
+* **price**: Price of the order
+* **amount**: Amount of the order
+* **quantity**: quantity of the order
+* **pairsymbol**: Pair of the order
+* **pairSymbolNormalized**: Pair of the order with "_" in between.
+* **type**: Type of order. Buy or Sell
+* **method**: Method of order.
+* **orderClientId**: Order client id created with (GUID if not set by user)
+* **time**: Unix time the order was inserted at
+* **updateTime**: Unix time last updated
+* **status**: Status of the order. Untouched, Matched partialy, Canceled
