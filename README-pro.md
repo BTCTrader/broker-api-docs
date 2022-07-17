@@ -423,7 +423,7 @@ signature := base64.StdEncoding.EncodeToString(hmac.Sum(nil))
 ```
 
 Example (Node.js)
-```java
+```javascript
 const API_KEY = "API_KEY_HERE"
 const API_SECRET = "API_SECRET_HERE"
     
